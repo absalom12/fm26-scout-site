@@ -3,334 +3,274 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FM26 Scout: extract your save, find the best players</title>
-<meta name="description" content="FM26 Scout extracts the data from your Football Manager 26 save and opens it as a scouting dashboard. Run moneyball on match stats or find the best players for your team. Free for Windows and Mac.">
-<meta name="theme-color" content="#0b0f13">
+<title>FM26 Scout · Your Football Manager 26 save, scouted three ways</title>
+<meta name="description" content="Free scouting dashboard for Football Manager 26. It reads your save without changing it, then lets you scout with every number, only what your scouts see, or match stats alone. Windows and Mac.">
+<meta name="theme-color" content="#07090c">
 <meta property="og:type" content="website">
-<meta property="og:title" content="FM26 Scout: extract your save, find the best players">
-<meta property="og:description" content="Free scouting dashboard for Football Manager 26. Moneyball, fair price estimates and transfer targets from your own save. Your save stays on your computer.">
-<!-- TODO: make og:image an absolute URL (https://your-domain/assets/og.jpg) once the domain is known -->
+<meta property="og:title" content="FM26 Scout · Your FM26 save, scouted three ways">
+<meta property="og:description" content="Free, read-only scouting dashboard for Football Manager 26. Full data, Fair play or Moneyball. Squad gaps, offer checks, deal finder. Your save never leaves your computer.">
+<!-- TODO (carried over): make og:image absolute once the domain is known -->
 <meta property="og:image" content="assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@AbsalomeSama">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="img/full-1600.webp" imagesrcset="img/full-1600.webp 1600w, img/full-3024.webp 3024w" imagesizes="(max-width: 720px) 260vw, (max-width: 1320px) 100vw, 1280px" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-lens="full">
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="top">
-  <a class="brand" href="#top" aria-label="FM26 Scout, back to top">
-    <img src="assets/icon.png" width="36" height="36" alt="">
-    <span>FM26 Scout</span>
+<header class="top" id="top">
+  <a class="brand" href="#main" aria-label="FM26 Scout, back to top">
+    <img src="assets/icon.png" width="34" height="34" alt=""><span>FM26 Scout</span>
   </a>
-  <nav class="top-links" aria-label="Project links">
-    <a href="https://github.com/absalom12/fm26-scout">GitHub</a>
-    <!-- TODO: replace with the real X account URL -->
-    <a href="https://x.com/TODO" data-todo="x-url">X</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#modes">Three modes</a><a href="#tour">What it does</a><a href="#install">Install</a><a href="#faq">FAQ</a>
   </nav>
+  <div class="top-end">
+    <a class="social" href="https://github.com/absalom12/fm26-scout" aria-label="FM26 Scout on GitHub" title="GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg></a>
+    <a class="social" href="https://x.com/AbsalomeSama" aria-label="Follow @AbsalomeSama on X" title="@AbsalomeSama on X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43Z"/></svg></a>
+    <a class="btn btn-sm" href="#install">Download</a>
+  </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="pitch" aria-hidden="true">
-      <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <g fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="40" y="40" width="1120" height="680"/>
-          <line x1="600" y1="40" x2="600" y2="720"/>
-          <circle cx="600" cy="380" r="130"/>
-          <rect x="40" y="200" width="200" height="360"/>
-          <rect x="960" y="200" width="200" height="360"/>
-        </g>
-      </svg>
+  <!-- ===== HERO: three floodlights, gelled in the three mode colours. The lit one is the lens you're looking through. ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="beams" aria-hidden="true"><i class="beam b-full"></i><i class="beam b-fair"></i><i class="beam b-money"></i></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker"><span class="dot"></span>Free scouting dashboard for Football Manager 26</p>
+        <h1 id="hero-title"><span class="l1">Your save.</span><span class="l2">Scouted</span><span class="l3"><em class="w-full">three</em> <em class="w-fair">ways</em><em class="w-money">.</em></span></h1>
+        <div class="hero-side">
+          <p class="lede">FM26 Scout reads every player in your save, <strong>without changing it</strong>, and opens them in a recruitment dashboard. See every number, only what your scouts would see, or nothing but match output.</p>
+          <ul class="facts" aria-label="At a glance"><li>Free &amp; open source</li><li>Read-only: never writes to your save</li><li>No account, nothing uploaded</li></ul>
+        </div>
+
+        <div class="cta" data-cta>
+          <a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run FM26-Scout.exe</small></span></a>
+          <a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+            <span class="btn-lines"><span data-dl-text>Download for Mac</span><small data-dl-sub>Apple Silicon (M1 or later)</small></span></a>
+          <p class="cta-alt cta-note">Free. Ready in about three minutes.</p>
+        </div>
+        <div class="cta" data-cta-phone hidden>
+          <button class="btn btn-primary" type="button" data-share>Send the link to my computer</button>
+          <p class="cta-alt">FM26 Scout runs on Windows and Apple Silicon Macs.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="wrap hero-copy">
-      <h1 class="rise" style="--d:0ms">Extract your FM26 save. Scout it like a moneyball analyst.</h1>
-      <p class="lede rise" style="--d:120ms">FM26 Scout pulls every player's data out of your Football Manager 26 save and opens it as a scouting dashboard. Run moneyball on pure match stats, or just find the best players for your team.</p>
-
-      <div class="downloads rise" style="--d:220ms">
-        <a class="btn" id="dl-windows" data-os="windows" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip">
-          <span class="btn-main">Download for Windows</span>
-          <span class="btn-sub">Unzip, then run FM26-Scout.exe</span>
-        </a>
-        <a class="btn" id="dl-mac" data-os="mac" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip">
-          <span class="btn-main">Download for Mac</span>
-          <span class="btn-sub">Apple Silicon (M1 or later)</span>
-        </a>
-      </div>
-      <p class="reassure rise" style="--d:300ms">Free · No account · Your save stays on your computer</p>
-    </div>
-
-    <figure class="shot shot-hero wrap rise" style="--d:380ms">
-      <div class="frame" tabindex="0" role="group" aria-label="Screenshot of FM26 Scout in Moneyball mode. Scroll sideways on small screens.">
-        <div class="inner">
-          <img src="assets/shots/scout-moneyball.webp" width="1512" height="771" fetchpriority="high"
-               alt="FM26 Scout in Moneyball mode: a table of players with a performance score, per-90 match stats, fee and weekly wage.">
-          <span class="hl intro" data-n="1" style="--x:51.3;--y:30.1;--w:7.3;--h:66.5;--i:1"></span>
-          <span class="hl intro" data-n="2" style="--x:59.1;--y:30.1;--w:17;--h:66.5;--i:2"></span>
-          <span class="hl intro" data-n="3" style="--x:86;--y:30.1;--w:13.4;--h:66.5;--i:3"></span>
+    <div class="wrap stage-wrap">
+      <div class="lens-col">
+        <p class="lens-label">Pick a mode. The screen below switches.</p>
+        <div class="lenses" role="tablist" aria-label="Scouting mode">
+        <button role="tab" id="lens-full" aria-selected="true" aria-controls="hero-stage" data-lens="full" style="--m:var(--full)"><b>Full</b><span>Every number, CA and PA included</span><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-fair" aria-selected="false" aria-controls="hero-stage" data-lens="fair" tabindex="-1" style="--m:var(--fair)"><b>Fair play</b><span>Only what your scouts can see</span><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-moneyball" aria-selected="false" aria-controls="hero-stage" data-lens="moneyball" tabindex="-1" style="--m:var(--money)"><b>Moneyball</b><span>Match output, nothing else</span><i class="timer" aria-hidden="true"></i></button>
         </div>
       </div>
-      <ol class="legend">
-        <li>A performance score built only from match statistics.</li>
-        <li>The numbers behind it: goals, xG, assists, dribbles and more, per 90 minutes.</li>
-        <li>What each player costs: fee and weekly wage.</li>
-      </ol>
-      <p class="swipe">Swipe the screenshot to explore it.</p>
-    </figure>
-  </section>
-
-  <!-- MODES -->
-  <section class="band modes" id="modes" data-mode="full" aria-labelledby="modes-title">
-    <div class="wrap">
-      <div class="modes-head">
-        <h2 id="modes-title">Three ways to find your next signing</h2>
-        <p>Switch between them in one click, inside the app. Same save, three different lenses.</p>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="Recruitment styles">
-        <button role="tab" id="tab-full" data-mode="full" aria-controls="panel-full" aria-selected="true">Full</button>
-        <button role="tab" id="tab-fair" data-mode="fair" aria-controls="panel-fair" aria-selected="false" tabindex="-1">Fair play</button>
-        <button role="tab" id="tab-money" data-mode="moneyball" aria-controls="panel-money" aria-selected="false" tabindex="-1">Moneyball</button>
-      </div>
-
-      <div role="tabpanel" id="panel-full" aria-labelledby="tab-full" class="mode-panel">
-        <div class="mode-text">
-          <h3>Everything the save knows</h3>
-          <p>All the data, including each player's current and potential ability (CA and PA). The complete picture when you want to dig deep.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of Full mode. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/scout-full.webp" width="1512" height="771" loading="lazy" alt="FM26 Scout in Full mode, showing current ability and potential ability for each player.">
-              <span class="hl" data-n="1" style="--x:39.7;--y:30.1;--w:12.6;--h:66.5"></span>
-            </div>
+      <figure class="hero-stage" id="hero-stage" role="tabpanel" aria-labelledby="lens-full">
+        <div class="monitor">
+          <div class="scene-inner" style="--ar:3024/1652">
+            <img class="lens-img on" data-lens="full" src="img/full-1600.webp" srcset="img/full-1600.webp 1600w, img/full-3024.webp 3024w" sizes="(max-width: 720px) 260vw, (max-width: 1320px) 100vw, 1280px" width="3024" height="1652" fetchpriority="high"
+                 alt="FM26 Scout in Full mode: Mbappé, Haaland, Bonmatí and others with current and potential ability, performance and season stats.">
+            <img class="lens-img" data-lens="fair" src="img/fair-1600.webp" srcset="img/fair-1600.webp 1600w, img/fair-3024.webp 3024w" sizes="(max-width: 720px) 260vw, (max-width: 1320px) 100vw, 1280px" width="3024" height="1652" loading="lazy"
+                 alt="FM26 Scout in Fair play mode: the same player table with no CA or PA, showing club, best role, key visible attributes, performance, rating and fee.">
+            <img class="lens-img" data-lens="moneyball" src="img/moneyball-1600.webp" srcset="img/moneyball-1600.webp 1600w, img/moneyball-3024.webp 3024w" sizes="(max-width: 720px) 260vw, (max-width: 1320px) 100vw, 1280px" width="3024" height="1652" loading="lazy"
+                 alt="FM26 Scout in Moneyball mode: players ranked by a performance score from match stats, with goals, xG and assists per 90.">
+            <span class="scanline" aria-hidden="true"></span>
           </div>
-          <ol class="legend"><li>Current and potential ability, straight from the save.</li></ol>
-        </figure>
-      </div>
-
-      <div role="tabpanel" id="panel-fair" aria-labelledby="tab-fair" class="mode-panel" hidden>
-        <div class="mode-text">
-          <h3>Only what a manager can see</h3>
-          <p>No CA or PA, no hidden attributes, no personality numbers. Scout with the same information the game gives you.</p>
         </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of Fair play mode. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/scout-fair.webp" width="1512" height="771" loading="lazy" alt="FM26 Scout in Fair play mode, showing only the key attributes a manager can see.">
-              <span class="hl" data-n="1" style="--x:61.4;--y:30.1;--w:14.6;--h:66.5"></span>
-            </div>
-          </div>
-          <ol class="legend"><li>Visible attributes only. Ability numbers and hidden attributes are gone.</li></ol>
-        </figure>
-      </div>
-
-      <div role="tabpanel" id="panel-money" aria-labelledby="tab-money" class="mode-panel" hidden>
-        <div class="mode-text">
-          <h3>Only what happened on the pitch</h3>
-          <p>No attributes at all. A performance score and per-90 match stats, set against fee and wage. Find the players whose output beats their price.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of Moneyball mode. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/scout-moneyball.webp" width="1512" height="771" loading="lazy" alt="FM26 Scout in Moneyball mode, showing match statistics per 90 minutes next to fee and wage.">
-              <span class="hl" data-n="1" style="--x:59.1;--y:30.1;--w:17;--h:66.5"></span>
-            </div>
-          </div>
-          <ol class="legend"><li>Match statistics per 90 minutes, and nothing else.</li></ol>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="band" aria-labelledby="tools">
-    <div class="wrap">
-      <h2 id="tools">What you can do with it</h2>
-
-      <article class="feature">
-        <div class="feature-text">
-          <h3>Search the whole save</h3>
-          <p>Every player in your save, men and women, from every nation. Stack filters on age, position, value, wage, contract and attributes, then save the searches you use again.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of the Edit search panel. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/search.webp" width="1512" height="771" loading="lazy" alt="The Edit search panel with nationality, contract and attribute filters, and a count of matching players.">
-              <span class="hl" data-n="1" style="--x:38.2;--y:13.4;--w:22.9;--h:37.9"></span>
-              <span class="hl" data-n="2" style="--x:14.2;--y:53.2;--w:71.1;--h:36.3"></span>
-              <span class="hl" data-n="3" style="--x:14.9;--y:90.8;--w:62;--h:6.2"></span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li>Pick one or several nations, first or second nationality.</li>
-            <li>Set a minimum for any attribute.</li>
-            <li>Name and save the search. The counter shows how many players match.</li>
-          </ol>
-        </figure>
-      </article>
-
-      <article class="feature">
-        <div class="feature-text">
-          <h3>Spot a bargain</h3>
-          <p>Deal Finder compares a player's real fee and wage with an estimate of the fair price, so the good deals rise to the top.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of Deal Finder. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/deals.webp" width="1485" height="812" loading="lazy" alt="Deal Finder listing players with their fee, estimated fair fee, wage, estimated fair wage and a deal rating.">
-              <span class="hl" data-n="1" style="--x:58.2;--y:29.6;--w:25.5;--h:68"></span>
-              <span class="hl" data-n="2" style="--x:84.6;--y:29.6;--w:8.9;--h:68"></span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li>Fair fee and fair wage, estimated from similar players in the same save.</li>
-            <li>How far below the fair price the whole deal sits: steal, bargain or over.</li>
-          </ol>
-        </figure>
-      </article>
-
-      <article class="feature">
-        <div class="feature-text">
-          <h3>Know where your squad is thin</h3>
-          <p>My Club reads your formation from your recent matches, scores every slot, ranks your players position by position and lists the best-value targets for your weakest spots.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of My Club. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/club.webp" width="1485" height="812" loading="lazy" alt="My Club for Bristol Rovers: a formation on a pitch, a power ranking of positions and a list of transfer targets.">
-              <span class="hl" data-n="1" style="--x:1;--y:19.7;--w:23;--h:57.3"></span>
-              <span class="hl" data-n="2" style="--x:26.1;--y:16.6;--w:19.9;--h:79.4"></span>
-              <span class="hl" data-n="3" style="--x:48;--y:22.2;--w:50.5;--h:77.8"></span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li>Your formation, with a fit score for each slot.</li>
-            <li>Positions ranked, weakest first.</li>
-            <li>Targets that would improve your weakest spots, with fee, fair price and deal rating.</li>
-          </ol>
-        </figure>
-      </article>
-
-      <article class="feature">
-        <div class="feature-text">
-          <h3>Check an offer before you send it</h3>
-          <p>Enter a fee and a wage. Offers gives you a verdict, an estimate of the chance the club accepts, and shows how the fair price is built.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of Offers. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/offer.webp" width="1512" height="771" loading="lazy" alt="Offers page showing a verdict, a fair fee range chart and a table of how the fair price is built.">
-              <span class="hl" data-n="1" style="--x:27.6;--y:8.8;--w:22;--h:6.5"></span>
-              <span class="hl" data-n="2" style="--x:29.1;--y:18.8;--w:68.1;--h:13.6"></span>
-              <span class="hl" data-n="3" style="--x:27.6;--y:56.4;--w:71.2;--h:21.4"></span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li>A verdict on your fee, and whether the club might accept.</li>
-            <li>Your offer set against the fair range.</li>
-            <li>How the fair price is built, lens by lens.</li>
-          </ol>
-        </figure>
-      </article>
-
-      <article class="feature">
-        <div class="feature-text">
-          <h3>Open any player</h3>
-          <p>One card with ability, standout attributes and traits, contract, and price against fair price. Star players to build shortlists and export any search to CSV.</p>
-        </div>
-        <figure class="shot">
-          <div class="frame" tabindex="0" role="group" aria-label="Screenshot of a player card. Scroll sideways on small screens.">
-            <div class="inner">
-              <img src="assets/shots/player.webp" width="1512" height="771" loading="lazy" alt="A player card showing ability, a scouting verdict of standout attributes and the price compared with the fair price.">
-              <span class="hl" data-n="1" style="--x:70.8;--y:30.1;--w:27.8;--h:14"></span>
-              <span class="hl" data-n="2" style="--x:70.8;--y:48;--w:27.8;--h:41.5"></span>
-            </div>
-          </div>
-          <ol class="legend">
-            <li>A scouting verdict: standout attributes and traits.</li>
-            <li>Price against fair price, split by lens.</li>
-          </ol>
-        </figure>
-      </article>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="band" aria-labelledby="how">
-    <div class="wrap how">
-      <div>
-        <h2 id="how">From save file to scouting dashboard in a few minutes</h2>
-        <ol class="steps">
-          <li>
-            <h3>Download and open</h3>
-            <p>Unzip the file and double-click FM26 Scout. Your browser opens on its own.</p>
-          </li>
-          <li>
-            <h3>Pick your save</h3>
-            <p>FM26 Scout lists the Football Manager 26 saves it finds. Click one and wait about a minute while it extracts the data.</p>
-          </li>
-          <li>
-            <h3>Start scouting</h3>
-            <p>Filter, compare, shortlist. Close the tab when you are done and the app closes with it.</p>
-          </li>
-        </ol>
-      </div>
-      <figure class="how-shot">
-        <img src="assets/shots/welcome.webp" width="725" height="420" loading="lazy" alt="The Load your save screen listing the Football Manager 26 saves found on the computer.">
-        <figcaption>The first screen: your saves, ready to load.</figcaption>
+        <figcaption class="lower-third"><span class="lt-tag" data-lt-tag>Full</span><span data-lt-text>CA and PA, straight from the save.</span></figcaption>
       </figure>
     </div>
-  </section>
 
-  <!-- PRIVACY -->
-  <section class="band privacy" aria-labelledby="privacy">
+    <!-- Broadcast ticker: real rows from a real save (Bristol Rovers, January 2028). Decorative, so hidden from screen readers. -->
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span><b>Mbappé</b> CA <em class="c-full">196</em></span><span><b>Haaland</b> Perf <em class="c-money">95</em></span><span><b>Pol Fortuny</b> <em class="c-fair">79% under fair</em> Steal</span>
+      <span><b>Lauren James</b> Rating <em class="c-money">7.61</em></span><span><b>Bonmatí</b> CA <em class="c-full">191</em></span><span><b>Rodrigo Mora</b> 20 yrs · Perf <em class="c-money">92</em></span>
+      <span><b>Bristol Rovers</b> Team fit <em class="c-fair">63.4</em></span><span><b>Olivia Smith</b> PA <em class="c-full">194</em></span><span><b>Dani Rodríguez</b> <em class="c-fair">75% under fair</em> Steal</span>
+      <span><b>Nico Williams</b> xA <em class="c-money">11.01</em></span>
+      <span><b>Mbappé</b> CA <em class="c-full">196</em></span><span><b>Haaland</b> Perf <em class="c-money">95</em></span><span><b>Pol Fortuny</b> <em class="c-fair">79% under fair</em> Steal</span>
+      <span><b>Lauren James</b> Rating <em class="c-money">7.61</em></span><span><b>Bonmatí</b> CA <em class="c-full">191</em></span><span><b>Rodrigo Mora</b> 20 yrs · Perf <em class="c-money">92</em></span>
+      <span><b>Bristol Rovers</b> Team fit <em class="c-fair">63.4</em></span><span><b>Olivia Smith</b> PA <em class="c-full">194</em></span><span><b>Dani Rodríguez</b> <em class="c-fair">75% under fair</em> Steal</span>
+      <span><b>Nico Williams</b> xA <em class="c-money">11.01</em></span>
+    </div></div>
+
     <div class="wrap">
-      <h2 id="privacy">Your save stays yours</h2>
-      <p>FM26 Scout runs on your own computer. The save is read locally and nothing is uploaded anywhere. There is no account, no tracking and no subscription.</p>
+      <dl class="bug">
+        <div><dt>Players in one save</dt><dd>75,167</dd></div>
+        <div><dt>Scouting modes</dt><dd>3</dd></div>
+        <div><dt>To read your save</dt><dd>~1<small>min</small></dd></div>
+        <div><dt>Bytes uploaded</dt><dd>0</dd></div>
+      </dl>
+      <p class="bug-note">Numbers from a real Bristol Rovers save, January 2028. Your player count depends on your database.</p>
     </div>
   </section>
 
-  <!-- DOWNLOAD + FIRST LAUNCH -->
-  <section class="band get" id="get" aria-labelledby="first">
+  <!-- ===== MODES: three colour blocks. The colour carries information: it's the colour the app uses for each mode. ===== -->
+  <section class="modes" id="modes" aria-labelledby="modes-title">
+    <div class="wrap modes-head">
+      <p class="eyebrow">Three ways to recruit</p>
+      <h2 id="modes-title">Pick how much<br>you want to know.</h2>
+    </div>
+    <div class="mode-row">
+      <article class="mode-block m-full">
+        <p class="mb-n">01</p><h3>Full</h3>
+        <p class="who">The whole truth.</p>
+        <p>Current and potential ability, hidden attributes like consistency and injury proneness, personality. Wonderkids and hidden gems in seconds.</p>
+      </article>
+      <article class="mode-block m-fair">
+        <p class="mb-n">02</p><h3>Fair play</h3>
+        <p class="who">Find them yourself.</p>
+        <p>What the game shows a manager, and no more. Visible attributes, role fit and stats. Nothing that would spoil your save.</p>
+      </article>
+      <article class="mode-block m-money">
+        <p class="mb-n">03</p><h3>Moneyball</h3>
+        <p class="who">Only output counts.</p>
+        <p>Attributes switched off. A performance score from per-90 match stats, set against what the player costs.</p>
+      </article>
+    </div>
+    <p class="wrap modes-foot">One click switches modes inside the app. Same save, same players, different eyes.</p>
+  </section>
+
+  <!-- ===== TOUR: sticky monitor that zooms onto each callout (desktop), pre-zoomed screenshot per step (mobile) ===== -->
+  <section class="band tour" id="tour" aria-labelledby="tour-title">
     <div class="wrap">
-      <h2 id="first">Get FM26 Scout</h2>
-      <div class="downloads">
-        <a class="btn" data-os="windows" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip">
-          <span class="btn-main">Download for Windows</span>
-          <span class="btn-sub">Unzip, then run FM26-Scout.exe</span>
-        </a>
-        <a class="btn" data-os="mac" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip">
-          <span class="btn-main">Download for Mac</span>
-          <span class="btn-sub">Apple Silicon (M1 or later)</span>
-        </a>
+      <p class="eyebrow">The analysis</p>
+      <h2 id="tour-title">Freeze frame.<br>Zoom in. Decide.</h2>
+    </div>
+    <div class="wrap tour-grid">
+      <div class="tour-stage" aria-hidden="true"><div class="monitor" data-stage></div></div>
+      <ol class="steps">
+        <li class="step" id="step-club" data-step="club">
+          <p class="step-tag"><span>01</span>My Club</p>
+          <h3>See where your squad is thin.</h3>
+          <p>Your formation is read from your recent matches. Every slot gets a fit score, positions are ranked weakest first, and the best-value targets for the gap you click are listed, with fee, package and how far under fair price they sit.</p>
+          <figure class="scene" data-focus="0,10,47,88">
+            <div class="scene-inner" style="--ar:3024/1652">
+              <img src="img/club-1600.webp" srcset="img/club-1600.webp 1600w, img/club-3024.webp 3024w" sizes="(max-width: 1080px) 240vw, 62vw" width="3024" height="1652" loading="lazy" alt="My Club for Bristol Rovers in 4-2-3-1: fit scores on the pitch, positions ranked weakest first, and AMC targets like Pol Fortuny at 79% under fair price.">
+            </div>
+          </figure>
+          <ol class="callouts"><li>Your formation, a fit score for each slot.</li><li>Positions ranked, weakest first.</li><li>Targets for that slot, with price and deal rating.</li></ol>
+        </li>
+        <li class="step" id="step-offer" data-step="offer">
+          <p class="step-tag"><span>02</span>Offers</p>
+          <h3>Check the bid before you send it.</h3>
+          <p>Type a fee and a wage. You get a verdict, an estimate of whether the club accepts, where your offer sits in the fair range, and how that fair price was built.</p>
+          <figure class="scene" data-focus="26,6,74,76">
+            <div class="scene-inner" style="--ar:3024/1652">
+              <img src="img/offer-1600.webp" srcset="img/offer-1600.webp 1600w, img/offer-3024.webp 3024w" sizes="(max-width: 1080px) 240vw, 62vw" width="3024" height="1652" loading="lazy" alt="Offers for Kylian Mbappé: a Fair price verdict, 'Unlikely to be accepted', the offer on a fair range bar and the fair price built lens by lens.">
+            </div>
+          </figure>
+          <ol class="callouts"><li>A verdict, and whether the club might accept.</li><li>Your offer against the fair range and the asking price.</li><li>How the fair price is built, lens by lens.</li></ol>
+        </li>
+        <li class="step" id="step-search" data-step="search">
+          <p class="step-tag"><span>03</span>Edit search</p>
+          <h3>Every filter FM has. Then save it.</h3>
+          <p>Men and women, every nation. Age, height, position, value, wage, contract, a minimum for any attribute. Name the search and reuse it next window.</p>
+          <figure class="scene" data-focus="11,6,76,90">
+            <div class="scene-inner" style="--ar:3024/1652">
+              <img src="img/search-1600.webp" srcset="img/search-1600.webp 1600w, img/search-3024.webp 3024w" sizes="(max-width: 1080px) 240vw, 62vw" width="3024" height="1652" loading="lazy" alt="The Edit search panel: nationality list with player counts, contract filters, attribute sliders, and a live count of 75,167 matching players.">
+            </div>
+          </figure>
+          <ol class="callouts"><li>One or several nations, first or second nationality.</li><li>A minimum for any attribute.</li><li>A live count of matching players. Save the search.</li></ol>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Tools without a high-res capture yet get a card, not a blurry screenshot. Turn them into steps once the captures exist. -->
+    <div class="wrap more">
+      <h3 class="more-title">Also in the box</h3>
+      <div class="more-grid">
+        <article class="more-card" style="--m:var(--money)">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34 18 22l8 7 14-17"/><path d="M32 12h8v8"/></svg>
+          <h4>Deal Finder</h4><p>Real fee and wage against a fair price from similar players in your save. Steals, bargains and overpays, sorted.</p></article>
+        <article class="more-card" style="--m:var(--full)">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="7" width="28" height="34" rx="3"/><circle cx="24" cy="19" r="5"/><path d="M16 33c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          <h4>Player file</h4><p>Ability, standout attributes and traits, contract, and price against fair price, on one card.</p></article>
+        <article class="more-card" style="--m:var(--fair)">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 7 5 10.5 11.5 1.6-8.3 8 2 11.4L24 33l-10.2 5.5 2-11.4-8.3-8L19 17.5z"/></svg>
+          <h4>Shortlists &amp; CSV</h4><p>Star players into a shortlist, save searches, export any list to CSV for your own analysis.</p></article>
+        <article class="more-card" style="--m:var(--tele)">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="17" r="7"/><circle cx="33" cy="17" r="7"/><path d="M6 40c1.5-7 6-11 11-11s9.5 4 11 11M26 31c2-1.5 4.3-2 7-2 5 0 9.5 4 11 11"/></svg>
+          <h4>Men &amp; women</h4><p>Every player in the save, from every nation, with one switch between men's and women's football.</p></article>
       </div>
-      <h3 class="first-title">The first launch asks for one extra click</h3>
-      <p class="first-intro">FM26 Scout is not code-signed yet, so your computer asks you to confirm before opening it. You only do this once. The code is public on GitHub if you want to check what it does.</p>
-      <div class="os-grid">
-        <div class="os" id="os-mac">
-          <h4>On Mac</h4>
-          <ol>
+    </div>
+  </section>
+
+  <!-- ===== KICK-OFF ===== -->
+  <section class="band kickoff" aria-labelledby="ko-title">
+    <div class="wrap">
+      <p class="eyebrow">Kick-off</p>
+      <h2 id="ko-title">Save file to scouting desk<br>in about three minutes.</h2>
+      <ol class="ko-steps">
+        <li style="--m:var(--full)"><span class="ko-n">1</span><b>Download &amp; open</b><p>Unzip, double-click FM26 Scout. Your browser opens by itself.</p></li>
+        <li style="--m:var(--fair)"><span class="ko-n">2</span><b>Pick your save</b><p>Your FM26 saves are listed. Click one and give it about a minute.</p></li>
+        <li style="--m:var(--money)"><span class="ko-n">3</span><b>Scout</b><p>Filter, compare, shortlist. Close the tab and the app closes with it.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== INSTALL: the one gold block on the page. The page ends here, so the colour peaks here. ===== -->
+  <section class="install" id="install" aria-labelledby="install-title">
+    <div class="wrap">
+      <div class="install-head">
+        <div>
+          <p class="eyebrow ink">Transfer window's open</p>
+          <h2 id="install-title">Get<br>FM26 Scout.</h2>
+          <p class="install-lede">Free. Read-only. Your save never leaves your computer.</p>
+        </div>
+        <div class="dl-pair">
+          <a class="dl" data-os="windows" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip"><b>Windows</b><span>FM26-Scout-windows.zip</span><em class="dl-you">Your system</em></a>
+          <a class="dl" data-os="mac" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip"><b>Mac</b><span>Apple Silicon (M1 or later)</span><em class="dl-you">Your system</em></a>
+        </div>
+      </div>
+      <div class="first-launch">
+        <div class="fl-intro">
+          <h3>The first launch asks for one extra click.</h3>
+          <p>FM26 Scout isn't code-signed yet, so your computer asks you to confirm once. The code is public on GitHub if you want to check what it does.</p>
+        </div>
+        <div class="fl-tabs">
+          <div class="os-switch" role="tablist" aria-label="Your system">
+            <button role="tab" id="t-win" aria-controls="p-win" aria-selected="true" data-os-tab="windows">Windows</button>
+            <button role="tab" id="t-mac" aria-controls="p-mac" aria-selected="false" data-os-tab="mac" tabindex="-1">Mac</button>
+          </div>
+          <div role="tabpanel" id="p-win" aria-labelledby="t-win" class="os-panel"><ol>
+            <li>Unzip the folder first. Don't run it from inside the zip.</li>
+            <li>Double-click <code>FM26-Scout.exe</code>. If Windows says it protected your PC, click <strong>More info</strong>.</li>
+            <li>Click <strong>Run anyway</strong>. That's the only time you'll see it.</li></ol></div>
+          <div role="tabpanel" id="p-mac" aria-labelledby="t-mac" class="os-panel" hidden><ol>
             <li>Double-click FM26 Scout. macOS says it can't open it.</li>
-            <li>Open System Settings, then Privacy &amp; Security.</li>
-            <li>Scroll down and click <strong>Open Anyway</strong>, then confirm.</li>
-          </ol>
-          <p class="note">Works on Apple Silicon Macs only. Intel Macs are not supported.</p>
+            <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+            <li>Scroll down, click <strong>Open Anyway</strong>, confirm. Done for good.</li></ol>
+            <p class="note">Apple Silicon Macs only (M1 or later). Intel Macs aren't supported.</p></div>
         </div>
-        <div class="os" id="os-windows">
-          <h4>On Windows</h4>
-          <ol>
-            <li>Unzip the folder first. Do not run it from inside the zip.</li>
-            <li>Double-click FM26-Scout.exe. If Windows protects your PC, click <strong>More info</strong>.</li>
-            <li>Click <strong>Run anyway</strong>.</li>
-          </ol>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="band faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div><p class="eyebrow">Before you ask</p><h2 id="faq-title">FAQ</h2></div>
+      <div class="qa">
+        <details open><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. FM26 Scout makes its own copy of the player data on your computer and works from that.</p></details>
+        <details><summary>Is it cheating?</summary><p>Only if you want it to be. Fair play hides CA, PA, hidden attributes and personality, so you scout with what the game shows a manager. Moneyball hides attributes entirely.</p></details>
+        <details><summary>Which saves work?</summary><p>Football Manager 26 saves (<code>.fm</code>). The app lists the ones it finds. Loading another save replaces the previous one.</p></details>
+        <details><summary>Does it include women's football?</summary><p>Yes. Every player in the save, men and women, with a filter to switch between them.</p></details>
+        <details><summary>Why does my computer warn me about it?</summary><p>The app isn't code-signed yet, which costs money and paperwork. The warning only appears on the first launch. See the steps above, or read the code on GitHub.</p></details>
+        <details><summary>Does it cost anything?</summary><p>No. It's free and open source. No account, no subscription, no tracking.</p></details>
       </div>
     </div>
   </section>
@@ -341,17 +281,22 @@
     <div>
       <p class="foot-title">FM26 Scout is free and open source.</p>
       <p class="foot-links">
-        <a href="https://github.com/absalom12/fm26-scout">View the code on GitHub</a>
-        <!-- TODO: replace with the real X account URL -->
-        <a href="https://x.com/TODO" data-todo="x-url">Follow on X</a>
+        <a href="https://github.com/absalom12/fm26-scout">Code on GitHub</a>
+        <a href="https://x.com/AbsalomeSama">@AbsalomeSama on X</a>
+        <a href="https://github.com/absalom12/fm26-scout/releases">All releases</a>
       </p>
     </div>
     <div class="legal">
-      <p>Unofficial project, not affiliated with Sports Interactive or Football Manager.</p>
+      <p>Unofficial project, not affiliated with Sports Interactive, SEGA or Football Manager.</p>
       <p>Built on <a href="https://github.com/rhiever">fmsave by Randal Olson</a>.</p>
     </div>
   </div>
 </footer>
+
+<div class="dock" data-dock hidden>
+  <span class="dock-txt"><b>FM26 Scout</b><span class="dock-sub"> · free, read-only</span></span>
+  <a class="btn btn-primary btn-sm" data-dl="dock" href="#install"><span data-dl-text>Download</span></a>
+</div>
 
 <script src="script.js"></script>
 </body>
