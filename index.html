@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FM26 Scout: scout every player in your save</title>
+<meta name="description" content="A free app that opens your Football Manager 26 save in your browser so you can search, value and shortlist every player in it. Windows and Mac. Your save never leaves your computer.">
+<meta name="theme-color" content="#0b0f13">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FM26 Scout: scout every player in your save">
+<meta property="og:description" content="Free scouting app for Football Manager 26. Search, value and shortlist every player in your save. Your save stays on your computer.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="FM26 Scout, back to top">
+    <img src="assets/icon.png" width="36" height="36" alt="">
+    <span>FM26 Scout</span>
+  </a>
+  <nav class="top-links" aria-label="Project links">
+    <a href="https://github.com/absalom12/fm26-scout">GitHub</a>
+    <!-- TODO: replace with the real X account URL -->
+    <a href="https://x.com/TODO" data-todo="x-url">X</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="pitch" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="40" y="40" width="1120" height="680" pathLength="1"/>
+        <line x1="600" y1="40" x2="600" y2="720" pathLength="1"/>
+        <circle cx="600" cy="380" r="130" pathLength="1"/>
+        <rect x="40" y="200" width="200" height="360" pathLength="1"/>
+        <rect x="40" y="290" width="70" height="180" pathLength="1"/>
+        <rect x="960" y="200" width="200" height="360" pathLength="1"/>
+        <rect x="1090" y="290" width="70" height="180" pathLength="1"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-copy">
+      <h1>Every player in your save, finally searchable.</h1>
+      <p class="lede">FM26 Scout opens your Football Manager 26 save in your browser. Filter it, value it, shortlist the players you want.</p>
+
+      <div class="downloads" id="downloads">
+        <a class="btn" id="dl-windows" data-os="windows" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip">
+          <span class="btn-main">Download for Windows</span>
+          <span class="btn-sub">Unzip, then run FM26-Scout.exe</span>
+        </a>
+        <a class="btn" id="dl-mac" data-os="mac" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip">
+          <span class="btn-main">Download for Mac</span>
+          <span class="btn-sub">Apple Silicon (M1 or later)</span>
+        </a>
+      </div>
+      <p class="reassure">Free · No account · Your save stays on your computer</p>
+    </div>
+
+    <figure class="shot wrap">
+      <img src="assets/screenshot.jpg" width="1600" height="874" alt="FM26 Scout showing a sortable table of young players with their stats, fees and wages, in Moneyball mode.">
+    </figure>
+  </section>
+
+  <section class="band" aria-labelledby="how">
+    <div class="wrap">
+      <h2 id="how">From download to shortlist in a few minutes</h2>
+      <ol class="steps">
+        <li>
+          <h3>Download and open</h3>
+          <p>Unzip the file and double-click FM26 Scout. Your browser opens on its own.</p>
+        </li>
+        <li>
+          <h3>Pick your save</h3>
+          <p>Your Football Manager 26 saves are listed. Click one and wait about a minute while it loads.</p>
+        </li>
+        <li>
+          <h3>Start scouting</h3>
+          <p>Search, compare, shortlist. Close the tab when you are done and the app closes with it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="modes-title">
+    <div class="wrap modes">
+      <div class="modes-intro">
+        <h2 id="modes-title">Scout the way you like to play</h2>
+        <p>Pick how much of the save you want to see. Switch at any time.</p>
+      </div>
+      <div class="modes-panel">
+        <div class="tabs" role="tablist" aria-label="Recruitment styles">
+          <button role="tab" id="tab-full" aria-controls="panel-full" aria-selected="true">Full</button>
+          <button role="tab" id="tab-fair" aria-controls="panel-fair" aria-selected="false" tabindex="-1">Fair play</button>
+          <button role="tab" id="tab-money" aria-controls="panel-money" aria-selected="false" tabindex="-1">Moneyball</button>
+        </div>
+        <div role="tabpanel" id="panel-full" aria-labelledby="tab-full">
+          <h3>Everything in your save</h3>
+          <p>All the data, including each player's current and potential ability. For when you want the complete picture.</p>
+        </div>
+        <div role="tabpanel" id="panel-fair" aria-labelledby="tab-fair" hidden>
+          <h3>Only what the game shows a manager</h3>
+          <p>No hidden potential, no hidden attributes. Scout with the same information you would have in the game.</p>
+        </div>
+        <div role="tabpanel" id="panel-money" aria-labelledby="tab-money" hidden>
+          <h3>Only what happened on the pitch</h3>
+          <p>Match statistics and nothing else, no attributes at all. Find the players who deliver, whatever their numbers say.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="tools">
+    <div class="wrap">
+      <h2 id="tools">What you can do with it</h2>
+      <dl class="tools">
+        <div>
+          <dt>Search everything</dt>
+          <dd>Every player in your save, men and women, from every nation. Combine filters and save the searches you use most.</dd>
+        </div>
+        <div>
+          <dt>Spot a bargain</dt>
+          <dd>Deal Finder compares a player's real fee and wage with an estimate of the fair price, so the good deals stand out.</dd>
+        </div>
+        <div>
+          <dt>Know your squad</dt>
+          <dd>My Club works out your formation from your recent matches, ranks your players position by position and suggests targets where you are thin.</dd>
+        </div>
+        <div>
+          <dt>Check an offer first</dt>
+          <dd>Get a verdict on a transfer offer and an estimate of the chance the club accepts it, before you send it.</dd>
+        </div>
+        <div>
+          <dt>Keep your lists</dt>
+          <dd>Shortlist the players you like and come back to them whenever you open the app.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band first-run" aria-labelledby="first">
+    <div class="wrap">
+      <h2 id="first">The first launch asks for one extra click</h2>
+      <p class="first-intro">FM26 Scout is not code-signed yet, so your computer asks you to confirm before opening it. You only do this once. The code is public on GitHub if you want to check what it does.</p>
+      <div class="os-grid">
+        <div class="os" id="os-mac">
+          <h3>On Mac</h3>
+          <ol>
+            <li>Double-click FM26 Scout. macOS says it can't open it.</li>
+            <li>Open System Settings, then Privacy &amp; Security.</li>
+            <li>Scroll down and click <strong>Open Anyway</strong>, then confirm.</li>
+          </ol>
+          <p class="note">Works on Apple Silicon Macs only. Intel Macs are not supported.</p>
+        </div>
+        <div class="os" id="os-windows">
+          <h3>On Windows</h3>
+          <ol>
+            <li>Unzip the folder first. Do not run it from inside the zip.</li>
+            <li>Double-click FM26-Scout.exe. If Windows protects your PC, click <strong>More info</strong>.</li>
+            <li>Click <strong>Run anyway</strong>.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-title">FM26 Scout is free and open source.</p>
+      <p class="foot-links">
+        <a href="https://github.com/absalom12/fm26-scout">View the code on GitHub</a>
+        <!-- TODO: replace with the real X account URL -->
+        <a href="https://x.com/TODO" data-todo="x-url">Follow on X</a>
+      </p>
+    </div>
+    <div class="legal">
+      <p>Unofficial project, not affiliated with Sports Interactive or Football Manager.</p>
+      <p>Built on <a href="https://github.com/rhiever">fmsave by Randal Olson</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
