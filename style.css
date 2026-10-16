@@ -65,7 +65,9 @@ h3 { margin: 0; font: 800 clamp(26px, 2.6vw, 36px)/1.05 var(--f-display); }
   background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
 .top.scrolled { border-bottom-color: var(--line); }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 800 24px/1 var(--f-display); }
-.brand img { border-radius: 8px; }
+.brand { flex: none; }
+.brand img { display: block; height: 30px; width: auto; }
+@media (max-width: 720px) { .brand img { height: 34px; } }
 .nav { display: flex; gap: 6px; }
 .nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 16px; padding: 8px 12px; border-radius: 6px; }
 .nav a:hover { color: var(--text); }
@@ -303,7 +305,6 @@ h1 em { font-style: inherit; }
   :root { --gutter: 20px; --top: 60px; --band: 104px; }
   body { font-size: 17px; }
   .top { gap: 12px; }
-  .brand span { display: none; }
   .hero { padding-top: 44px; }
   h1 { font-size: clamp(60px, 18vw, 92px); }
   .lede { margin-top: 26px; }
