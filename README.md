@@ -2,7 +2,7 @@
 
 Static landing page for **[FM26 Scout](https://github.com/absalom12/fm26-scout)**, a local web app that scouts, values and shortlists players straight from a Football Manager 2026 save file.
 
-**Live:** _URL added after the first Cloudflare Pages deploy._
+**Live:** https://fm26-scout-site.bien-vu-server.workers.dev (Cloudflare Workers static assets)
 
 ## Stack
 
@@ -35,10 +35,10 @@ To replace one, export both widths with the same name and keep the `srcset` in `
 
 ## Deploy
 
-Hosted on Cloudflare Pages, project `fm26-scout-site`, served from the repo root (no build command, no output directory).
+Hosted on Cloudflare as a Worker named `fm26-scout-site` serving static assets from the repo root (config in `wrangler.jsonc`, exclusions in `.assetsignore`).
 
 ```bash
-npx wrangler pages deploy . --project-name fm26-scout-site
+npx wrangler deploy
 ```
 
 ## License
