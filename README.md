@@ -13,7 +13,8 @@ index.html     page markup, SEO and Open Graph tags
 style.css      styles
 script.js      small interactions
 assets/        logo, favicons, og.jpg
-img/           app screenshots (WebP, 1600 and 3024 px wide, served with srcset)
+fonts/         Barlow + Barlow Condensed (SIL OFL 1.1), self-hosted woff2, latin + latin-ext
+img/           app screenshots and crops (WebP)
 ```
 
 ## Run locally
@@ -26,12 +27,13 @@ Open http://localhost:8000.
 
 ## Screenshots
 
-`img/` holds real captures of the app, exported from 3024×1652 PNGs to WebP at two widths (`*-1600.webp`, `*-3024.webp`).
+`img/` holds real v0.4.4 captures of the app (3024 px wide Retina PNGs, Bristol Rovers save, January 2028), exported to WebP (quality 80).
 
-- Hero: `full`, `fair`, `moneyball`
-- Tour: `club`, `offer`, `search`
+- Hero, desktop: `full`, `fair`, `moneyball` at two widths (`*-1600.webp`, `*-3024.webp`), served with `srcset`.
+- Hero, phone: `full-m`, `fair-m`, `moneyball-m`: the name column and the mode columns, cut side by side.
+- Story crops at native Retina size (2x display): `club-*`, `okou-*`, `paz-*`, `drawer`, `offer`, `search`, `fair-badge`.
 
-To replace one, export both widths with the same name and keep the `srcset` in `index.html` in sync.
+Pins on a crop are placed in % of the crop (`--x`, `--y`); if you re-crop, move them.
 
 ## Deploy
 

@@ -1,5 +1,5 @@
 /* FM26 Scout landing, redesign. Vanilla JS, no build, no dependencies. The page works without it:
- * no-JS visitors get both downloads, the first hero screenshot and every tour step with its own screenshot. */
+ * no-JS visitors get both downloads, the first hero screenshot and every annotated screenshot. */
 'use strict';
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -23,7 +23,7 @@
     $('[data-cta-phone]').hidden = false;
   } else if (os) {
     var other = os === 'mac' ? 'windows' : 'mac';
-    var SUB = { windows: 'Unzip, then run FM26-Scout.exe', mac: 'Apple Silicon (M1 or later)' };
+    var SUB = { windows: 'Unzip, then run FM26-Scout.exe', mac: 'Apple Silicon, signed by Apple' };
     [['primary', os], ['secondary', other]].forEach(function (pair) {
       var b = $('[data-dl="' + pair[0] + '"]'), id = pair[1];
       b.href = DL[id].url;
@@ -62,32 +62,15 @@
     dio.observe(ctaEl); dio.observe($('#install'));
   }
 
-  // ---------- Camera: zoom a screenshot so a focus box (in % of the image) fills its frame ----------
-  function zoom(inner, frame, f, maxS) {
-    var Wc = frame.clientWidth, Hc = frame.clientHeight, Wi = Wc, Hi = inner.offsetHeight || Wc / 1.9;
-    var fw = f[2] / 100 * Wi, fh = f[3] / 100 * Hi;
-    var s = Math.max(1, Math.min(maxS || 2.6, .94 * Wc / fw, .94 * Hc / fh));
-    var cx = (f[0] + f[2] / 2) / 100 * Wi, cy = (f[1] + f[3] / 2) / 100 * Hi;
-    var tx = Wc / 2 - s * cx, ty = Hc / 2 - s * cy;
-    tx = Math.min(0, Math.max(Wc - s * Wi, tx));
-    ty = s * Hi <= Hc ? (Hc - s * Hi) / 2 : Math.min(0, Math.max(Hc - s * Hi, ty));
-    inner.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + s.toFixed(3) + ')';
-    inner.style.setProperty('--s', s.toFixed(3));
-  }
-  var parse = function (v) { return v.split(',').map(Number); };
-
   // ---------- Hero: one save, three lenses ----------
   var LENS = {
-    full: { tag: 'Full', text: 'CA and PA, straight from the save.', phone: [3, 19, 50, 44] },
-    fair: { tag: 'Fair play', text: 'Hidden info is off. You scout with what the game shows.', phone: [3, 19, 50, 44] },
-    moneyball: { tag: 'Moneyball', text: 'A performance score built only from match stats.', phone: [3, 19, 46, 44] }
+    full: { tag: 'Full', text: 'CA and PA, straight from the save.' },
+    fair: { tag: 'Fair play', text: 'No CA, no PA. Key visible attributes, like a scout report.' },
+    moneyball: { tag: 'Moneyball', text: 'Ranked by match output. Key stats per 90.' }
   };
   var ORDER = ['full', 'fair', 'moneyball'];
-  var stage = $('#hero-stage'), hInner = $('.scene-inner', stage), hFrame = $('.monitor', stage);
+  var stage = $('#hero-stage');
   var tabs = $$('.lenses [role="tab"]'), cur = 'full', auto = !reduce, timer = null, DWELL = 5200;
-  var small = window.matchMedia('(max-width: 720px)');
-
-  function frameHero() { if (small.matches) zoom(hInner, hFrame, LENS[cur].phone, 2.6); else { hInner.style.transform = ''; hInner.style.setProperty('--s', 1); } }
   function setLens(id, user) {
     if (user) stopAuto();
     var L = LENS[id], prev = cur; cur = id;
@@ -101,7 +84,6 @@
     img.classList.add('on');
     var sc = $('.scanline', stage); sc.classList.remove('run'); if (prev !== id && !reduce) { void sc.offsetWidth; sc.classList.add('run'); }
     $('[data-lt-tag]').textContent = L.tag; $('[data-lt-text]').textContent = L.text;
-    frameHero();
     if (auto) { clearTimeout(timer); timer = setTimeout(function () { setLens(ORDER[(ORDER.indexOf(cur) + 1) % 3]); }, DWELL); }
   }
   function stopAuto() { auto = false; clearTimeout(timer); $$('.lenses .timer').forEach(function (t) { t.classList.remove('run'); }); }
@@ -122,34 +104,6 @@
   stage.addEventListener('pointerenter', function () { if (auto) { clearTimeout(timer); $$('.lenses .timer').forEach(function (t) { t.style.animationPlayState = 'paused'; }); } });
   stage.addEventListener('pointerleave', function () { if (auto) { $$('.lenses .timer').forEach(function (t) { t.style.animationPlayState = ''; }); setLens(ORDER[(ORDER.indexOf(cur) + 1) % 3]); } });
   setLens('full');
-
-  // ---------- Tour: sticky monitor on desktop, pre-zoomed screenshots in each step on mobile ----------
-  var steps = $$('.step'), stageEl = $('[data-stage]'), desk = window.matchMedia('(min-width: 1081px)');
-  steps.forEach(function (st) {
-    var w = document.createElement('div'); w.className = 'scene-wrap'; w.dataset.step = st.dataset.step;
-    w.appendChild($('.scene-inner', st).cloneNode(true)); stageEl.appendChild(w);
-  });
-  function frameAll() {
-    steps.forEach(function (st) {
-      var fig = $('.scene', st), f = parse(fig.dataset.focus);
-      if (!desk.matches) zoom($('.scene-inner', fig), fig, f, 2.4);
-      var w = $('.scene-wrap[data-step="' + st.dataset.step + '"]', stageEl);
-      if (desk.matches) zoom($('.scene-inner', w), stageEl, f, 1.7);
-    });
-  }
-  function activate(id) {
-    steps.forEach(function (s) { s.classList.toggle('on', s.dataset.step === id); });
-    $$('.scene-wrap', stageEl).forEach(function (w) { w.classList.toggle('on', w.dataset.step === id); });
-  }
-  activate(steps[0].dataset.step);
-  if ('IntersectionObserver' in window) {
-    var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) activate(e.target.dataset.step); }); },
-      { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(function (s) { sio.observe(s); });
-  }
-  var rT; window.addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(function () { frameAll(); frameHero(); }, 120); });
-  window.addEventListener('load', function () { frameAll(); frameHero(); });
-  frameAll();
 
   // ---------- Install: first-launch tabs, preselected for the visitor's OS ----------
   var osTabs = $$('[data-os-tab]');
