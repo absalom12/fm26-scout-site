@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FM26 Scout · Moneyball for your Football Manager 26 save</title>
-<meta name="description" content="Free scouting tool for Football Manager 26. Find undervalued players from in-game stats, see a fair fee for every player, and scout your way: Full, Fair play or Moneyball. Runs on your computer, Windows and Mac.">
+<meta name="description" content="FM26 Scout pulls every player out of your Football Manager 26 save. Scout them in the app, Moneyball included, or export the data to your own tools. Free, runs on your computer, Windows and Mac.">
 <meta name="theme-color" content="#07090c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="FM26 Scout · Sign the stats, not the reputation">
-<meta property="og:description" content="Free, read-only scouting tool for Football Manager 26. Moneyball, Fair play or Full data. Fair fees, deal %, player profiles, similar players, squad gaps. Your save never leaves your computer.">
+<meta property="og:description" content="Your FM26 save. Your data. Scout your way: Full, Fair play or Moneyball, or export everything to a spreadsheet. Free, read-only, your save never leaves your computer.">
 <meta property="og:image" content="https://fm26-scout-site.bien-vu-server.workers.dev/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@AbsalomeSama">
@@ -32,7 +32,7 @@
     </picture>
   </a>
   <nav class="nav" aria-label="Sections">
-    <a href="#modes">Modes</a><a href="#case">Moneyball</a><a href="#profile">Player file</a><a href="#price">Prices</a><a href="#install">Install</a><a href="#faq">FAQ</a>
+    <a href="#how">How it works</a><a href="#modes">Modes</a><a href="#features">Features</a><a href="#install">Install</a><a href="#faq">FAQ</a>
   </nav>
   <div class="top-end">
     <a class="social" href="https://github.com/absalom12/fm26-scout" aria-label="FM26 Scout on GitHub" title="GitHub">
@@ -45,15 +45,15 @@
 
 <main id="main">
 
-  <!-- ===== HERO: one save, three lenses. The lit floodlight is the lens you're looking through. ===== -->
+  <!-- ===== HERO: one save, three modes. The lit floodlight is the mode you picked. ===== -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="beams" aria-hidden="true"><i class="beam b-full"></i><i class="beam b-fair"></i><i class="beam b-money"></i></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 26 · v0.4.4</p>
-        <h1 id="hero-title"><span class="l1">Sign the</span><span class="l2"><em class="w-money">stats.</em></span><span class="l3">Not the name.</span></h1>
+        <h1 id="hero-title"><span>Sign the stats.</span><span>Not the name.</span></h1>
         <div class="hero-side">
-          <p class="lede">FM26 Scout reads your save, <strong>without changing it</strong>, and turns every player into numbers you can sort: match output per 90, a fair fee, how far under or over it he sells. Find the ones who play better than they cost.</p>
+          <p class="lede">FM26 Scout pulls every player out of <strong>your own FM26 save</strong> and puts them in one place. Scout them in the app, Moneyball style if you like, or export the data and dig in with your own tools. Find the players who are better than their price.</p>
           <ul class="facts" aria-label="At a glance"><li>Free &amp; open source</li><li>Runs on your computer, works offline</li><li>Read-only: never writes to your save</li></ul>
         </div>
 
@@ -78,8 +78,8 @@
         <p class="lens-label">Three ways to scout. Pick one, the screen switches.</p>
         <div class="lenses" role="tablist" aria-label="Scouting mode">
         <button role="tab" id="lens-full" aria-selected="true" aria-controls="hero-stage" data-lens="full" style="--m:var(--full)"><b>Full</b><span>Every number, CA and PA included</span><i class="timer" aria-hidden="true"></i></button>
-        <button role="tab" id="lens-fair" aria-selected="false" aria-controls="hero-stage" data-lens="fair" tabindex="-1" style="--m:var(--fair)"><b>Fair play</b><span>Only what a scout sees in game</span><i class="timer" aria-hidden="true"></i></button>
-        <button role="tab" id="lens-moneyball" aria-selected="false" aria-controls="hero-stage" data-lens="moneyball" tabindex="-1" style="--m:var(--money)"><b>Moneyball</b><span>Match stats only, no attributes</span><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-fair" aria-selected="false" aria-controls="hero-stage" data-lens="fair" tabindex="-1" style="--m:var(--fair)"><b>Fair play</b><span>Only what your scouts would see</span><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-moneyball" aria-selected="false" aria-controls="hero-stage" data-lens="moneyball" tabindex="-1" style="--m:var(--money)"><b>Moneyball</b><span>Match results only, no attributes</span><i class="timer" aria-hidden="true"></i></button>
         </div>
       </div>
       <div class="hero-stage" id="hero-stage" role="tabpanel" aria-labelledby="lens-full">
@@ -88,17 +88,17 @@
             <picture class="lens-img on" data-lens="full">
               <source media="(max-width: 720px)" srcset="img/full-m.webp" width="890" height="790">
               <img src="img/full-1600.webp" srcset="img/full-1600.webp 1600w, img/full-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" fetchpriority="high"
-                   alt="Full mode: Mbappé, Haaland, Bonmatí and others with current ability and potential ability (CA 196, PA 197 for Mbappé), best role, performance, fee and wage.">
+                   alt="Full mode: Mbappé, Haaland, Bonmatí and others with current and potential ability (196 and 197 for Mbappé), best role, form, price and wage.">
             </picture>
             <picture class="lens-img" data-lens="fair">
               <source media="(max-width: 720px)" srcset="img/fair-m.webp" width="854" height="790">
               <img src="img/fair-1600.webp" srcset="img/fair-1600.webp 1600w, img/fair-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" loading="lazy"
-                   alt="Fair play mode: the same table with no CA or PA. Each player shows his best role and his key visible attributes, like Dri 18, Fin 18, Acc 19 for Mbappé.">
+                   alt="Fair play mode: the same players without current or potential ability. Each one shows his best role and his main visible attributes, like dribbling 18 and finishing 18 for Mbappé.">
             </picture>
             <picture class="lens-img" data-lens="moneyball">
-              <source media="(max-width: 720px)" srcset="img/moneyball-m.webp" width="936" height="790">
+              <source media="(max-width: 720px)" srcset="img/moneyball-m.webp" width="860" height="790">
               <img src="img/moneyball-1600.webp" srcset="img/moneyball-1600.webp 1600w, img/moneyball-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" loading="lazy"
-                   alt="Moneyball mode, central midfielders: ranked by a performance score from match stats, Rodrigo Mora first at 92, with key stats per 90 like goals, key passes and xA.">
+                   alt="Moneyball mode, season view: every player ranked by a performance score from his matches, with appearances, minutes, rating, goals, assists and expected goals. Haaland: 93, 16 goals, 7.60 rating.">
             </picture>
             <span class="scanline" aria-hidden="true"></span>
           </div>
@@ -107,14 +107,10 @@
       </div>
     </div>
 
-    <!-- Broadcast ticker: real values read off the v0.4.4 screenshots below (Bristol Rovers save, January 2028). Decorative. -->
+    <!-- Broadcast ticker: real values read off the v0.4.4 screenshots (Bristol Rovers save, January 2028). Decorative. -->
     <div class="ticker" aria-hidden="true"><div class="ticker-track">
-      <span><b>Christ Okou</b> £1.4M · Perf <em class="c-money">85</em></span><span><b>Nico Paz</b> <em class="c-fair">59% under fair fee</em></span><span><b>Mbappé</b> CA <em class="c-full">196</em></span>
-      <span><b>Lauren James</b> Perf <em class="c-money">95</em></span><span><b>Olise</b> Fair fee <em class="c-fair">£225M</em></span><span><b>Rodrigo Mora</b> 20 yrs · Perf <em class="c-money">92</em></span>
-      <span><b>Haaland</b> xG <em class="c-money">12.69</em></span><span><b>Olivia Smith</b> PA <em class="c-full">194</em></span>
-      <span><b>Christ Okou</b> £1.4M · Perf <em class="c-money">85</em></span><span><b>Nico Paz</b> <em class="c-fair">59% under fair fee</em></span><span><b>Mbappé</b> CA <em class="c-full">196</em></span>
-      <span><b>Lauren James</b> Perf <em class="c-money">95</em></span><span><b>Olise</b> Fair fee <em class="c-fair">£225M</em></span><span><b>Rodrigo Mora</b> 20 yrs · Perf <em class="c-money">92</em></span>
-      <span><b>Haaland</b> xG <em class="c-money">12.69</em></span><span><b>Olivia Smith</b> PA <em class="c-full">194</em></span>
+      <span><b>Mbappé</b> Ability <em class="c-full">196</em></span><span><b>Haaland</b> Expected goals <em class="c-money">12.69</em></span><span><b>Olise</b> Rating <em class="c-money">7.78</em></span><span><b>Bellingham</b> Ability <em class="c-full">187</em></span><span><b>Wirtz</b> Price <em class="c-fair">£160M</em></span><span><b>Bonmatí</b> Ability <em class="c-full">191</em></span><span><b>Saka</b> Price <em class="c-fair">£181M</em></span><span><b>Lauren James</b> Form <em class="c-money">95</em></span>
+      <span><b>Mbappé</b> Ability <em class="c-full">196</em></span><span><b>Haaland</b> Expected goals <em class="c-money">12.69</em></span><span><b>Olise</b> Rating <em class="c-money">7.78</em></span><span><b>Bellingham</b> Ability <em class="c-full">187</em></span><span><b>Wirtz</b> Price <em class="c-fair">£160M</em></span><span><b>Bonmatí</b> Ability <em class="c-full">191</em></span><span><b>Saka</b> Price <em class="c-fair">£181M</em></span><span><b>Lauren James</b> Form <em class="c-money">95</em></span>
     </div></div>
 
     <div class="wrap">
@@ -128,15 +124,29 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM: three FM pains, each with the answer the app gives ===== -->
-  <section class="band problem" aria-labelledby="problem-title">
+  <!-- ===== THE BIG IDEA: your save -> your data -> scout your way ===== -->
+  <section class="band flow" id="how" aria-labelledby="flow-title">
     <div class="wrap">
-      <p class="eyebrow">The transfer window problem</p>
-      <h2 id="problem-title">Reputation sets<br>the price.<br><span class="dim">Output doesn't.</span></h2>
-      <ol class="pains">
-        <li style="--m:var(--full)"><p class="pain">Search screen after search screen, one player at a time.</p><p class="fix">Every player in the save in one table. Sort, filter, star, export.</p></li>
-        <li style="--m:var(--money)"><p class="pain">Big names cost big money, whatever they did on the pitch.</p><p class="fix">A performance score built from match stats, and a fair fee from similar players in your save.</p></li>
-        <li style="--m:var(--fair)"><p class="pain">Seeing everything kills the fun of scouting.</p><p class="fix">Fair play shows only what a scout sees in game. You choose how much to know.</p></li>
+      <p class="eyebrow">How it works</p>
+      <h2 id="flow-title">Your save.<br>Your data.<br>Your way.</h2>
+      <p class="sec-lede">Football Manager keeps every player's numbers locked inside your save. FM26 Scout opens it up, on your own computer, and hands the data back to you.</p>
+      <ol class="flow-steps">
+        <li class="fs" style="--m:var(--full)">
+          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22l12 12v40H16z"/><path d="M38 6v12h12"/><path d="M24 34h18M24 42h18M24 50h10"/><circle cx="27" cy="22" r="3"/></svg>
+          <p class="fs-n">01</p><h3>Your save</h3>
+          <p>Pick your FM26 save. FM26 Scout reads it in about a minute and never changes it. Nothing is uploaded.</p>
+        </li>
+        <li class="fs" style="--m:var(--fair)">
+          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="4"/><path d="M8 24h48M8 34h48M8 44h48M24 12v40M40 12v40"/></svg>
+          <p class="fs-n">02</p><h3>Your data</h3>
+          <p>Every player in the game, all 75,167 in our test save: attributes, season stats, contracts, fees, wages. Men and women.</p>
+        </li>
+        <li class="fs" style="--m:var(--money)">
+          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="15"/><path d="m38 38 16 16"/><path d="M20 31l5-6 4 4 6-8"/></svg>
+          <p class="fs-n">03</p><h3>Scout your way</h3>
+          <p class="fs-or"><b>In the app:</b> sort, filter and compare everyone, Moneyball included, then build your shortlist.</p>
+          <p class="fs-or"><b>Or anywhere else:</b> export any list, with every column, to a spreadsheet file (CSV) and open it in Excel, Google Sheets or your own tools.</p>
+        </li>
       </ol>
     </div>
   </section>
@@ -156,177 +166,53 @@
       <article class="mode-block m-fair">
         <p class="mb-n">02</p><h3>Fair play</h3>
         <p class="who">Find them yourself.</p>
-        <p>What a scout shows you in game, and no more. Visible attributes, roles and stats. No CA, no PA, no hidden attributes, even in the search filters.</p>
+        <p>Only what your scouts would tell you in the game. No potential, no hidden attributes. Your save stays a challenge.</p>
       </article>
       <article class="mode-block m-money">
         <p class="mb-n">03</p><h3>Moneyball</h3>
-        <p class="who">Only output counts.</p>
-        <p>Attributes switched off. Players ranked by a performance score from per-90 match stats. Under 900 minutes there's no fair fee: too few games to price him.</p>
+        <p class="who">Only results count.</p>
+        <p>Attributes switched off. Players are judged on what they actually do in matches, and put next to what they cost.</p>
       </article>
     </div>
-    <div class="wrap modes-foot">
-      <figure class="shot shot-badge" style="--w:472px">
-        <div class="shot-scroll"><div class="shot-in"><img src="img/fair-badge.webp" width="1180" height="164" loading="lazy" alt="The Edit search panel header with a Fair play badge and the line: Hidden info is off in Fair play."></div></div>
-      </figure>
-      <p>The mode follows you everywhere: tables, search, profiles, prices. One click switches it. Same save, same players, different eyes.</p>
-    </div>
+    <p class="wrap modes-foot">One click switches modes. Same save, same players, different eyes.</p>
   </section>
 
-  <!-- ===== THE MONEYBALL CASE: one real gap followed through the app, step by step ===== -->
-  <section class="band case" id="case" aria-labelledby="case-title">
+  <!-- ===== THREE FEATURES, ONE STRONG VISUAL EACH ===== -->
+  <section class="band feats" id="features" aria-labelledby="feats-title">
     <div class="wrap">
-      <p class="eyebrow">Moneyball, played for real</p>
-      <h2 id="case-title">One gap.<br><em class="w-money">£1.4M.</em> Your call.</h2>
-      <p class="sec-lede">Bristol Rovers, January 2028, Moneyball on. Here's how one transfer gets found, from the hole in the team to the player file.</p>
+      <p class="eyebrow">Your perfect window</p>
+      <h2 id="feats-title">Spend less.<br>Sign better.</h2>
 
-      <ol class="trail">
-        <li class="leg">
-          <div class="leg-text">
-            <p class="step-tag"><span>01</span>My Club</p>
-            <h3>The team tells you where it hurts.</h3>
-            <p>Your formation is read from your matches. Every slot gets a score, and the power ranking lists positions weakest first. At right wing, Kaide Gordon rates 47.</p>
-          </div>
-          <div class="leg-shots two">
-            <figure class="shot" style="--w:283px">
-              <div class="shot-scroll"><div class="shot-in"><img src="img/club-pitch.webp" width="708" height="1134" loading="lazy" alt="My Club for Bristol Rovers in Moneyball: 4-2-3-1, team performance 50.1, 7 weak spots. Each player on the pitch has a score; Gordon at AMR has 47.">
-                <span class="pin" style="--x:89%;--y:33%">1</span></div></div>
-              <figcaption><span class="pin-ref">1</span> Gordon, AMR: 47. Click the slot to see targets for it.</figcaption>
-            </figure>
-            <figure class="shot" style="--w:251px">
-              <div class="shot-scroll"><div class="shot-in"><img src="img/club-rank.webp" width="628" height="1336" loading="lazy" alt="Power ranking, weakest first: goalkeeper first, AMR sixth with Kaide Gordon at 47 and a need of 7.4.">
-                <span class="pin" style="--x:4%;--y:50.5%">2</span></div></div>
-              <figcaption><span class="pin-ref">2</span> Power ranking, weakest first. AMR is sixth.</figcaption>
-            </figure>
-          </div>
-        </li>
-        <li class="leg">
-          <div class="leg-text">
-            <p class="step-tag"><span>02</span>Targets</p>
-            <h3>The shortlist writes itself.</h3>
-            <p>Click the slot. Targets come ranked by how much performance they would add, with the per-90 stats that matter for the role and the fee. First name: Christ Okou, 22, Paris FC.</p>
-          </div>
-          <div class="leg-shots">
-            <figure class="shot wide" style="--w:624px">
-              <div class="shot-scroll" tabindex="0" aria-label="Targets for AMR, scroll sideways"><div class="shot-in"><img src="img/club-targets.webp" width="1560" height="816" loading="lazy" alt="Targets for the AMR slot: Christ Okou first, 22, Paris FC, dribbles, xA and crosses per 90, +39 performance, £1.4M. Then Nabil Kaaouach at £843k and Lumiere Santo at £387k.">
-                <span class="pin" style="--x:53%;--y:6%">1</span><span class="pin" style="--x:2.5%;--y:17%">2</span><span class="pin" style="--x:78%;--y:12%">3</span></div></div>
-              <figcaption><span class="pin-ref">1</span> Showing targets for AMR. <span class="pin-ref">2</span> Christ Okou, 22. <span class="pin-ref">3</span> +39 performance for £1.4M.</figcaption>
-            </figure>
-          </div>
-        </li>
-        <li class="leg">
-          <div class="leg-text">
-            <p class="step-tag"><span>03</span>The file</p>
-            <h3>Stats say yes. Attributes say raw.</h3>
-            <p>Performance 85 in his league, 7.15 average over 20 games, for £1.4M. His best role rates 59. Sign the output, or wait for a finished player: the app shows both sides, you decide.</p>
-          </div>
-          <div class="leg-shots">
-            <figure class="shot" style="--w:430px">
-              <div class="shot-scroll" tabindex="0" aria-label="Christ Okou key numbers, scroll sideways"><div class="shot-in"><img src="img/okou-kpis.webp" width="1076" height="128" loading="lazy" alt="Christ Okou's key numbers: value £1.4M, wage £991 a week until 2029, best role 59 Advanced Forward, performance 85 in his league, average rating 7.15 over 20 apps and 1418 minutes."></div></div>
-              <figcaption>Christ Okou's file, top line. Value, wage, best role, performance, rating.</figcaption>
-            </figure>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===== PLAYER PROFILE ===== -->
-  <section class="band profile" id="profile" aria-labelledby="profile-title">
-    <div class="wrap">
-      <p class="eyebrow">The player file</p>
-      <h2 id="profile-title">Read a player<br>in one screen.</h2>
-      <p class="sec-lede">Every profile opens on the same tabs. The mode decides what's inside.</p>
-      <ul class="tabs-strip" aria-label="Profile tabs">
-        <li>Overview</li><li>Statistics</li><li>Similar players</li><li>Price</li><li>Contract</li><li class="t-full">Scouting report <small>Full</small></li>
-      </ul>
-
-      <figure class="shot hero-shot" style="--w:610px">
-        <div class="shot-scroll" tabindex="0" aria-label="Pitch canvas, scroll sideways"><div class="shot-in"><img src="img/okou-pitch.webp" width="1524" height="682" loading="lazy" alt="Where he plays and what he brings: a pitch with ST and AMR bubbles for Christ Okou and four panels. Finishing 9.0 vs 11.5, Creating 9.3 vs 10.5, Carrying 12.0 vs 12.0, Defending 5.0 vs 8.1.">
-          <span class="pin" style="--x:47%;--y:12%">1</span><span class="pin" style="--x:2%;--y:9%">2</span><span class="pin" style="--x:2%;--y:58%">3</span></div></div>
-        <figcaption><span class="pin-ref">1</span> Bubbles show where he plays: striker, also right wing. <span class="pin-ref">2</span> Finishing, Creating, <span class="pin-ref">3</span> Carrying, Defending: each phase with his attributes and a benchmark next to his score.</figcaption>
-      </figure>
-
-      <div class="profile-grid">
-        <figure class="shot" style="--w:306px">
-          <div class="shot-scroll"><div class="shot-in"><img src="img/okou-gaps.webp" width="764" height="572" loading="lazy" alt="Strengths and gaps versus the average of 300 strikers with 900+ minutes: jumping reach +3.9, determination +3.3 at the top; long shots -8.2, leadership -7.2 at the bottom."></div></div>
-          <figcaption>Strengths and gaps against 300 strikers with 900+ minutes. Green above the bar, red below.</figcaption>
+      <article class="feat" style="--m:var(--money)">
+        <div class="feat-text">
+          <h3>See where your team is weak.</h3>
+          <p>FM26 Scout rates every position in your team and shows the weakest first. Click one and get the players who would make it better, with what they cost.</p>
+        </div>
+        <figure class="shot">
+          <img src="img/club-pitch.webp" width="708" height="1134" loading="lazy" alt="Bristol Rovers on a pitch in a 4-2-3-1. Each player has a score in a coloured circle: green where the team is strong, red where it is weak, like 47 at right wing.">
         </figure>
-        <div class="profile-notes">
-          <h3>What else is in the file</h3>
-          <ul class="ticks">
-            <li><b>Statistics:</b> a percentile pizza, "Among 300" distribution curves for his position, and every stat by phase, with the ones where lower is better marked ↓.</li>
-            <li><b>Role fit:</b> the key attributes of a role, heaviest first, and where he falls short.</li>
-            <li><b>Scouting report</b> in Full: archetype, attributes against output, tactical fit, character, risk, and how to use him.</li>
-            <li><b>Contract:</b> contract details and registrations.</li>
-          </ul>
+      </article>
+
+      <article class="feat flip" style="--m:var(--fair)">
+        <div class="feat-text">
+          <h3>Know a player in one look.</h3>
+          <p>Where he plays, what he's good at, and how he compares with other players in his position. His stats, his price, his contract and similar players are one tab away.</p>
         </div>
-        <figure class="shot drawer-shot" style="--w:367px">
-          <div class="shot-scroll"><div class="shot-in"><img src="img/drawer.webp" width="918" height="1256" loading="lazy" alt="Quick-view drawer for Michael Olise: value £180M, wage £370k a week, best role 88, performance 91, average rating 7.78, buttons Find similar players and Make an offer, and his attribute grid."></div></div>
-          <figcaption>No need to leave the list. Click a row and the quick view slides in, with the attribute grid, or the pizza in Moneyball.</figcaption>
+        <figure class="shot">
+          <picture><source media="(max-width: 720px)" srcset="img/okou-pitch-m.webp" width="1028" height="682"><img src="img/okou-pitch.webp" width="1524" height="682" loading="lazy" alt="A player page: a pitch shows he plays striker and right wing, and four panels score him on finishing, creating, carrying the ball and defending."></picture>
         </figure>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- ===== SIMILAR PLAYERS + PRICES ===== -->
-  <section class="band price" id="price" aria-labelledby="price-title">
-    <div class="wrap">
-      <p class="eyebrow">Similar players &amp; fair prices</p>
-      <h2 id="price-title">What he's worth.<br><span class="dim">Not what they ask.</span></h2>
-      <p class="sec-lede">Every player gets a fair fee, from players with a similar profile, age, level and contract in your save. The deal % says how far under or over it he's priced. Deal Finder sorts the whole save by it.</p>
-
-      <div class="price-grid">
-        <div class="price-col">
-          <figure class="shot" style="--w:459px">
-            <div class="shot-scroll" tabindex="0" aria-label="Nico Paz key numbers, scroll sideways"><div class="shot-in"><img src="img/paz-kpis.webp" width="1148" height="130" loading="lazy" alt="Nico Paz's key numbers: value £15M, 59% under fair fee, wage £15.5k a week, best role 80 Advanced Playmaker, performance 67.">
-              <span class="pin" style="--x:19.8%;--y:50%">1</span></div></div>
-            <figcaption><span class="pin-ref">1</span> Nico Paz, Como: £15M, 59% under his fair fee.</figcaption>
-          </figure>
-          <figure class="shot" style="--w:560px">
-            <div class="shot-scroll" tabindex="0" aria-label="Fee map, scroll sideways"><div class="shot-in"><img src="img/paz-map.webp" width="1682" height="1248" loading="lazy" alt="Fee map of players similar to Nico Paz: best role up, asking fee across on a log scale. Paz, the ring, sits near £15M while Pedri, Kubo, Güler and Kvaratskhelia cluster between £100M and £233M at a similar level.">
-              <span class="pin" style="--x:28%;--y:44%">2</span><span class="pin" style="--x:79%;--y:40%">3</span></div></div>
-            <figcaption><span class="pin-ref">2</span> Him, the ring, near £15M. <span class="pin-ref">3</span> Similar players at the same level go for £100M and more.</figcaption>
-          </figure>
+      <article class="feat" style="--m:var(--money)">
+        <div class="feat-text">
+          <h3>Spot the bargains.</h3>
+          <p>Every player gets a fair price, based on similar players in your own save. Then you see who sells for far less than he's worth.</p>
+          <p class="feat-note">Here: Nico Paz at £15M, 59% under his fair price, while players at his level cost £100M and more.</p>
         </div>
-        <div class="price-col">
-          <h3>Find similar players, the way your mode sees them.</h3>
-          <p>One button on every player. In Full and Fair play it matches attributes. In Moneyball it matches in-game stats. The fee map shows who's cheap for what he does.</p>
-          <figure class="shot" style="--w:730px">
-            <div class="shot-scroll" tabindex="0" aria-label="Offer check, scroll sideways"><div class="shot-in"><img src="img/offer.webp" width="2190" height="1186" loading="lazy" alt="Offer check for Michael Olise in Fair play: your fee £225M equals the fair fee, range £130M to £415M, asking price £296M. Verdict: Unlikely to be accepted. The fair price is built from three lenses: attributes £225M, form £61M, performance £97M.">
-              <span class="pin" style="--x:34%;--y:6%">1</span><span class="pin" style="--x:55%;--y:22%">2</span><span class="pin" style="--x:1.5%;--y:77%">3</span></div></div>
-            <figcaption><span class="pin-ref">1</span> A verdict before you bid. <span class="pin-ref">2</span> Your offer on the fair range, next to game value and asking price. <span class="pin-ref">3</span> How the fair price is built, lens by lens.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SEARCH ===== -->
-  <section class="band search" id="search" aria-labelledby="search-title">
-    <div class="wrap search-grid">
-      <div>
-        <p class="eyebrow">Edit search</p>
-        <h2 id="search-title">Search like<br>an analyst.</h2>
-        <p class="sec-lede">Pick positions on a pitch. Set a minimum for any attribute, with ±1 buttons. Filter on per-90 stats, success rates, contract, fee and nationality. A live count tells you how many players are left. Name the search and reuse it next window.</p>
-      </div>
-      <figure class="shot" style="--w:944px">
-        <div class="shot-scroll" tabindex="0" aria-label="Edit search, scroll sideways"><div class="shot-in"><img src="img/search.webp" width="2360" height="680" loading="lazy" alt="Edit search in Fair play: sections General, Attributes, Statistics, Contract, Nationality; the statistics section has per-90 filters for crosses, tackles, interceptions, headers won, clearances, possession won and pressures.">
-          <span class="pin" style="--x:35.5%;--y:8.5%">1</span><span class="pin" style="--x:15.6%;--y:40%">2</span></div></div>
-        <figcaption><span class="pin-ref">1</span> Fair play hides CA, PA and hidden attributes here too. <span class="pin-ref">2</span> Per-90 filters straight from match stats.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===== KICK-OFF ===== -->
-  <section class="band kickoff" aria-labelledby="ko-title">
-    <div class="wrap">
-      <p class="eyebrow">Kick-off</p>
-      <h2 id="ko-title">Save file to scouting desk<br>in about three minutes.</h2>
-      <ol class="ko-steps">
-        <li style="--m:var(--full)"><span class="ko-n">1</span><b>Download &amp; open</b><p>Unzip, double-click FM26 Scout. Your browser opens by itself.</p></li>
-        <li style="--m:var(--fair)"><span class="ko-n">2</span><b>Pick your save</b><p>Your FM26 saves are listed. Click one and give it about a minute.</p></li>
-        <li style="--m:var(--money)"><span class="ko-n">3</span><b>Scout</b><p>Pick a mode, filter, compare, shortlist. Close the tab and the app closes with it.</p></li>
-      </ol>
+        <figure class="shot">
+          <img src="img/paz-map.webp" width="1592" height="730" loading="lazy" alt="A chart of players similar to Nico Paz, by level and price. Paz, the ring, sits on his own near £15M; Pedri, Kubo, Güler and Kvaratskhelia are at a similar level between £100M and £233M.">
+        </figure>
+      </article>
     </div>
   </section>
 
@@ -374,8 +260,9 @@
       <div><p class="eyebrow">Before you ask</p><h2 id="faq-title">FAQ</h2></div>
       <div class="qa">
         <details open><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. FM26 Scout makes its own copy of the player data on your computer and works from that.</p></details>
-        <details><summary>Is it cheating?</summary><p>Only if you want it to be. Fair play hides CA, PA, hidden attributes and personality, so you scout with what a scout shows you in game. Moneyball hides attributes entirely and judges players on match stats.</p></details>
-        <details><summary>What is the fair fee?</summary><p>An estimate of what a player is worth, built from players with a similar profile, age, level and contract in your own save. The deal % compares it with his real asking price. In Moneyball, a player needs 900 minutes before he gets one.</p></details>
+        <details><summary>Is it cheating?</summary><p>Only if you want it to be. Fair play hides CA, PA, hidden attributes and personality, so you scout with what a scout shows you in game. Moneyball hides attributes entirely and judges players on what they do in matches.</p></details>
+        <details><summary>What is the fair price?</summary><p>What a player should cost, worked out from similar players (same kind of profile, age, level and contract) in your own save. FM26 Scout then tells you how far under or over it he is selling. In Moneyball, a player needs about ten full games (900 minutes) before he gets one.</p></details>
+        <details><summary>Can I use the data in my own spreadsheet?</summary><p>Yes. Any list in the app exports to a CSV file, which opens in Excel, Google Sheets, Numbers or any data tool you like. It's your save, so it's your data.</p></details>
         <details><summary>Which saves work?</summary><p>Football Manager 26 saves (<code>.fm</code>). The app lists the ones it finds. Loading another save replaces the previous one.</p></details>
         <details><summary>Does it include women's football?</summary><p>Yes. Every player in the save, men and women, with a switch between them.</p></details>
         <details><summary>Does it need the internet?</summary><p>No. Everything runs on your computer. At launch it asks GitHub whether a newer version exists and shows a link if there is one. Nothing about you or your save is sent.</p></details>

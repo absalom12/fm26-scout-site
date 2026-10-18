@@ -31,9 +31,7 @@ Open http://localhost:8000.
 
 - Hero, desktop: `full`, `fair`, `moneyball` at two widths (`*-1600.webp`, `*-3024.webp`), served with `srcset`.
 - Hero, phone: `full-m`, `fair-m`, `moneyball-m`: the name column and the mode columns, cut side by side.
-- Story crops at native Retina size (2x display): `club-*`, `okou-*`, `paz-*`, `drawer`, `offer`, `search`, `fair-badge`.
-
-Pins on a crop are placed in % of the crop (`--x`, `--y`); if you re-crop, move them.
+- Feature crops at native Retina size (2x display): `club-pitch`, `okou-pitch` (+ `okou-pitch-m` for phones), `paz-map`.
 
 ## Deploy
 
