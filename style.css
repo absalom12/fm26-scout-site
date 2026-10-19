@@ -502,3 +502,6 @@ p, li { text-wrap: pretty; }
   /* "GET SCOUTSHEET." was 352px wide at 76px and lost its full stop under 375px. */
   .install h2 { font-size: min(76px, 18.5vw); }
 }
+
+/* Demo video: loads only when played (preload none), poster in the meantime */
+.demo-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; margin-top: 32px; border-radius: 12px; border: 1px solid var(--line2); background: #000; }
