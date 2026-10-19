@@ -1,4 +1,4 @@
-/* FM26 Scout landing, redesign. Vanilla JS, no build, no dependencies. The page works without it:
+/* ScoutSheet landing, redesign. Vanilla JS, no build, no dependencies. The page works without it:
  * no-JS visitors get both downloads, the first hero screenshot and every annotated screenshot. */
 'use strict';
 (function () {
@@ -8,8 +8,8 @@
 
   // ---------- Config ----------
   var DL = {
-    windows: { url: 'https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip', label: 'Windows' },
-    mac: { url: 'https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip', label: 'Mac' }
+    windows: { url: 'https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-windows.zip', label: 'Windows' },
+    mac: { url: 'https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-mac.zip', label: 'Mac' }
   };
 
   // ---------- Who's visiting: Windows, Mac, or a phone/tablet that can't install it ----------
@@ -23,7 +23,7 @@
     $('[data-cta-phone]').hidden = false;
   } else if (os) {
     var other = os === 'mac' ? 'windows' : 'mac';
-    var SUB = { windows: 'Unzip, then run FM26-Scout.exe', mac: 'Apple Silicon, signed by Apple' };
+    var SUB = { windows: 'Unzip, then run ScoutSheet.exe', mac: 'Apple Silicon, signed by Apple' };
     [['primary', os], ['secondary', other]].forEach(function (pair) {
       var b = $('[data-dl="' + pair[0] + '"]'), id = pair[1];
       b.href = DL[id].url;
@@ -39,7 +39,7 @@
   $$('[data-share]').forEach(function (b) {
     b.addEventListener('click', function () {
       var url = location.href.split('#')[0];
-      if (navigator.share) { navigator.share({ title: 'FM26 Scout', text: 'Scouting dashboard for my FM26 save, install on my computer', url: url }).catch(function () {}); return; }
+      if (navigator.share) { navigator.share({ title: 'ScoutSheet', text: 'Scouting dashboard for my FM26 save, install on my computer', url: url }).catch(function () {}); return; }
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () { b.textContent = 'Link copied. Open it on your computer.'; },
         function () { b.textContent = url; });
     });

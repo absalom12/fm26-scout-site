@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FM26 Scout · Moneyball for your Football Manager 26 save</title>
-<meta name="description" content="FM26 Scout pulls every player out of your Football Manager 26 save. Scout them in the app, Moneyball included, or export the data to your own tools. Free, runs on your computer, Windows and Mac.">
+<title>ScoutSheet · Moneyball for your Football Manager 26 save</title>
+<meta name="description" content="ScoutSheet pulls every player out of your Football Manager 26 save. Scout them in the app, Moneyball included, or export the data to your own tools. Free, runs on your computer, Windows and Mac.">
 <meta name="theme-color" content="#07090c">
 <meta property="og:type" content="website">
-<meta property="og:title" content="FM26 Scout · Sign the stats, not the reputation">
+<meta property="og:title" content="ScoutSheet · Sign the stats, not the reputation">
 <meta property="og:description" content="Your FM26 save. Your data. Scout your way: Full, Fair play or Moneyball, or export everything to a spreadsheet. Free, read-only, your save never leaves your computer.">
-<meta property="og:image" content="https://fm26-scout-site.bien-vu-server.workers.dev/assets/og.jpg">
+<meta property="og:image" content="https://scoutsheet.app/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@AbsalomeSama">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -25,17 +25,17 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top" id="top">
-  <a class="brand" href="#main" aria-label="FM26 Scout, back to top">
+  <a class="brand" href="#main" aria-label="ScoutSheet, back to top">
     <picture>
-      <source media="(max-width: 720px)" srcset="assets/fm26scout-symbol-color.svg" width="34" height="34">
-      <img src="assets/fm26scout-logo-color.svg" width="166" height="30" alt="">
+      <source media="(max-width: 720px)" srcset="assets/scoutsheet-symbol-color.svg" width="34" height="34">
+      <img src="assets/scoutsheet-logo-color.svg" width="172" height="30" alt="">
     </picture>
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="#how">How it works</a><a href="#modes">Modes</a><a href="#features">Features</a><a href="#install">Install</a><a href="#faq">FAQ</a>
   </nav>
   <div class="top-end">
-    <a class="social" href="https://github.com/absalom12/fm26-scout" aria-label="FM26 Scout on GitHub" title="GitHub" target="_blank" rel="noopener">
+    <a class="social" href="https://github.com/absalom12/scoutsheet" aria-label="ScoutSheet on GitHub" title="GitHub" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg></a>
     <a class="social social-x" href="https://x.com/AbsalomeSama" aria-label="Follow @AbsalomeSama on X" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43Z"/></svg><span>@AbsalomeSama</span></a>
@@ -53,22 +53,22 @@
         <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 26 · v0.4.8</p>
         <h1 id="hero-title"><span>Sign the stats.</span><span>Not the name.</span></h1>
         <div class="hero-side">
-          <p class="lede">FM26 Scout pulls every player out of <strong>your own FM26 save</strong> and puts them in one place. Scout them in the app, Moneyball style if you like, or export the data and dig in with your own tools. Find the players who are better than their price.</p>
+          <p class="lede">ScoutSheet pulls every player out of <strong>your own FM26 save</strong> and puts them in one place. Scout them in the app, Moneyball style if you like, or export the data and dig in with your own tools. Find the players who are better than their price.</p>
           <ul class="facts" aria-label="At a glance"><li>Free &amp; open source</li><li>Runs on your computer, works offline</li><li>Read-only: never writes to your save</li></ul>
         </div>
 
         <div class="cta" data-cta>
-          <a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip">
+          <a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-windows.zip">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run FM26-Scout.exe</small></span></a>
-          <a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip">
+            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run ScoutSheet.exe</small></span></a>
+          <a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-mac.zip">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             <span class="btn-lines"><span data-dl-text>Download for Mac</span><small data-dl-sub>Apple Silicon, signed by Apple</small></span></a>
           <p class="cta-alt cta-note">Free. Ready in about three minutes.</p>
         </div>
         <div class="cta" data-cta-phone hidden>
           <button class="btn btn-primary" type="button" data-share>Send the link to my computer</button>
-          <p class="cta-alt">FM26 Scout runs on Windows and Apple Silicon Macs.</p>
+          <p class="cta-alt">ScoutSheet runs on Windows and Apple Silicon Macs.</p>
         </div>
       </div>
     </div>
@@ -129,12 +129,12 @@
     <div class="wrap">
       <p class="eyebrow">How it works</p>
       <h2 id="flow-title">Your save.<br>Your data.<br>Your way.</h2>
-      <p class="sec-lede">Football Manager keeps every player's numbers locked inside your save. FM26 Scout opens it up, on your own computer, and hands the data back to you.</p>
+      <p class="sec-lede">Football Manager keeps every player's numbers locked inside your save. ScoutSheet opens it up, on your own computer, and hands the data back to you.</p>
       <ol class="flow-steps">
         <li class="fs" style="--m:var(--full)">
           <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22l12 12v40H16z"/><path d="M38 6v12h12"/><path d="M24 34h18M24 42h18M24 50h10"/><circle cx="27" cy="22" r="3"/></svg>
           <p class="fs-n">01</p><h3>Your save</h3>
-          <p>Pick your FM26 save. FM26 Scout reads it in about a minute and never changes it. Nothing is uploaded.</p>
+          <p>Pick your FM26 save. ScoutSheet reads it in about a minute and never changes it. Nothing is uploaded.</p>
         </li>
         <li class="fs" style="--m:var(--fair)">
           <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="4"/><path d="M8 24h48M8 34h48M8 44h48M24 12v40M40 12v40"/></svg>
@@ -186,7 +186,7 @@
       <article class="feat" style="--m:var(--money)">
         <div class="feat-text">
           <h3>See where your team is weak.</h3>
-          <p>FM26 Scout rates every position in your team and shows the weakest first. Click one and get the players who would make it better, with what they cost.</p>
+          <p>ScoutSheet rates every position in your team and shows the weakest first. Click one and get the players who would make it better, with what they cost.</p>
         </div>
         <figure class="shot">
           <img src="img/club-pitch.webp" width="708" height="1134" loading="lazy" alt="Bristol Rovers on a pitch in a 4-2-3-1. Each player has a score in a coloured circle: green where the team is strong, red where it is weak, like 47 at right wing.">
@@ -222,12 +222,12 @@
       <div class="install-head">
         <div>
           <p class="eyebrow ink">Transfer window's open</p>
-          <h2 id="install-title">Get<br>FM26 Scout.</h2>
+          <h2 id="install-title">Get<br>ScoutSheet.</h2>
           <p class="install-lede">Free. Read-only. Works offline. Your save never leaves your computer.</p>
         </div>
         <div class="dl-pair">
-          <a class="dl" data-os="windows" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-windows.zip"><b>Windows</b><span>FM26-Scout-windows.zip</span><em class="dl-you">Your system</em></a>
-          <a class="dl" data-os="mac" href="https://github.com/absalom12/fm26-scout/releases/latest/download/FM26-Scout-mac.zip"><b>Mac</b><span>Apple Silicon (M1 or later)</span><em class="dl-you">Your system</em></a>
+          <a class="dl" data-os="windows" href="https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-windows.zip"><b>Windows</b><span>ScoutSheet-windows.zip</span><em class="dl-you">Your system</em></a>
+          <a class="dl" data-os="mac" href="https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-mac.zip"><b>Mac</b><span>Apple Silicon (M1 or later)</span><em class="dl-you">Your system</em></a>
         </div>
       </div>
       <div class="first-launch">
@@ -242,11 +242,11 @@
           </div>
           <div role="tabpanel" id="p-win" aria-labelledby="t-win" class="os-panel"><ol>
             <li>Unzip the folder first. Don't run it from inside the zip.</li>
-            <li>Double-click <code>FM26-Scout.exe</code>. If Windows says it protected your PC, click <strong>More info</strong>.</li>
+            <li>Double-click <code>ScoutSheet.exe</code>. If Windows says it protected your PC, click <strong>More info</strong>.</li>
             <li>Click <strong>Run anyway</strong>. That's the only time you'll see it.</li></ol></div>
           <div role="tabpanel" id="p-mac" aria-labelledby="t-mac" class="os-panel" hidden><ol>
-            <li>Unzip <code>FM26-Scout-mac.zip</code>.</li>
-            <li>Drag FM26 Scout to Applications, then double-click it. From there it can install its own updates.</li>
+            <li>Unzip <code>ScoutSheet-mac.zip</code>.</li>
+            <li>Drag ScoutSheet to Applications, then double-click it. From there it can install its own updates.</li>
             <li>The app opens in its own window. Pick your save.</li></ol>
             <p class="note">Apple Silicon Macs only (M1 or later). Intel Macs aren't supported.</p></div>
         </div>
@@ -259,13 +259,13 @@
     <div class="wrap faq-grid">
       <div><p class="eyebrow">Before you ask</p><h2 id="faq-title">FAQ</h2></div>
       <div class="qa">
-        <details open><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. FM26 Scout makes its own copy of the player data on your computer and works from that.</p></details>
+        <details open><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. ScoutSheet makes its own copy of the player data on your computer and works from that.</p></details>
         <details><summary>Is it cheating?</summary><p>Only if you want it to be. Fair play hides CA, PA, hidden attributes and personality, so you scout with what a scout shows you in game. Moneyball hides attributes entirely and judges players on what they do in matches.</p></details>
-        <details><summary>What is the fair price?</summary><p>What a player should cost, worked out from similar players (same kind of profile, age, level and contract) in your own save. FM26 Scout then tells you how far under or over it he is selling. In Moneyball, a player needs about ten full games (900 minutes) before he gets one.</p></details>
+        <details><summary>What is the fair price?</summary><p>What a player should cost, worked out from similar players (same kind of profile, age, level and contract) in your own save. ScoutSheet then tells you how far under or over it he is selling. In Moneyball, a player needs about ten full games (900 minutes) before he gets one.</p></details>
         <details><summary>Can I use the data in my own spreadsheet?</summary><p>Yes. Any list in the app exports to a CSV file, which opens in Excel, Google Sheets, Numbers or any data tool you like. It's your save, so it's your data.</p></details>
         <details><summary>Which saves work?</summary><p>Football Manager 26 saves (<code>.fm</code>). The app lists the ones it finds. Loading another save replaces the previous one.</p></details>
         <details><summary>Does it include women's football?</summary><p>Yes. Every player in the save, men and women, with a switch between them.</p></details>
-        <details><summary>Does it need the internet?</summary><p>No. Everything runs on your computer. At launch it asks GitHub whether a newer version exists. On Mac it installs it in one click; on Windows it shows a download link. You can turn the check off in Settings. Nothing about you or your save is sent.</p></details>
+        <details><summary>Does it need the internet?</summary><p>No. Everything runs on your computer. At launch it asks GitHub whether a newer version exists. If there is, one click installs it and restarts the app. You can turn the check off in Settings. Nothing about you or your save is sent.</p></details>
         <details><summary>Why does Windows warn me about it?</summary><p>Microsoft's signing costs a yearly fee, which a free project doesn't pay, so SmartScreen asks once. Click More info, then Run anyway. The Mac version is signed and notarised by Apple and opens without a warning.</p></details>
         <details><summary>Does it cost anything?</summary><p>No. It's free and open source. No account, no subscription, and the app itself has no tracking. This website counts visits with Cloudflare Web Analytics: no cookies, nothing about you personally.</p></details>
       </div>
@@ -276,12 +276,12 @@
 <footer class="foot">
   <div class="wrap foot-grid">
     <div>
-      <p class="foot-title">FM26 Scout is free and open source.</p>
+      <p class="foot-title">ScoutSheet is free and open source.</p>
       <p class="foot-by">Made by <a href="https://x.com/AbsalomeSama" target="_blank" rel="noopener">@AbsalomeSama</a>. Ideas, bugs, wonderkids you found: tell me on X.</p>
       <p class="foot-links">
-        <a href="https://github.com/absalom12/fm26-scout" target="_blank" rel="noopener">Code on GitHub</a>
+        <a href="https://github.com/absalom12/scoutsheet" target="_blank" rel="noopener">Code on GitHub</a>
         <a href="https://x.com/AbsalomeSama" target="_blank" rel="noopener">@AbsalomeSama on X</a>
-        <a href="https://github.com/absalom12/fm26-scout/releases" target="_blank" rel="noopener">All releases</a>
+        <a href="https://github.com/absalom12/scoutsheet/releases" target="_blank" rel="noopener">All releases</a>
       </p>
     </div>
     <div class="legal">
@@ -291,7 +291,7 @@
   </div>
 </footer>
 <div class="dock" data-dock hidden>
-  <span class="dock-txt"><b>FM26 Scout</b><span class="dock-sub"> · free, read-only</span></span>
+  <span class="dock-txt"><b>ScoutSheet</b><span class="dock-sub"> · free, read-only</span></span>
   <a class="btn btn-primary btn-sm" data-dl="dock" href="#install"><span data-dl-text>Download</span></a>
 </div>
 <script src="script.js"></script>
