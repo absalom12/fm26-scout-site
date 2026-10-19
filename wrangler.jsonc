@@ -2,7 +2,8 @@
   // Old name kept on purpose: installed FM26 Scout builds link to fm26-scout-site.*.workers.dev for downloads.
   "name": "fm26-scout-site",
   "compatibility_date": "2026-10-12",
-  "assets": { "directory": "." },
+  "main": "worker.js",
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/img/*.mp4"] },
   "workers_dev": true,  // the old address installed builds link to
   "preview_urls": false,
   "routes": [{ "pattern": "scoutsheet.fm", "custom_domain": true }, { "pattern": "www.scoutsheet.fm", "custom_domain": true }]

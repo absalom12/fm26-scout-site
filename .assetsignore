@@ -6,3 +6,4 @@ wrangler.preview.jsonc
 README.md
 .wrangler
 node_modules
+worker.js

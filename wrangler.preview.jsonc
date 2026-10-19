@@ -3,7 +3,8 @@
   // npx wrangler deploy -c wrangler.preview.jsonc
   "name": "scoutsheet-preview",
   "compatibility_date": "2026-10-12",
-  "assets": { "directory": "." },
+  "main": "worker.js",
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/img/*.mp4"] },
   "workers_dev": true,
   "preview_urls": false
 }
