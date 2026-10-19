@@ -518,4 +518,11 @@ p, li { text-wrap: pretty; }
 .consent .btn-sm:hover { background: transparent; box-shadow: inset 0 0 0 2px var(--text); }
 body:has(.consent:not([hidden])) .dock { display: none; }
 .linkish { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.linkish { text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
+.linkish:hover { text-decoration-color: currentColor; }
+.foot-links { gap: 8px 24px; }
+@media (max-width: 720px) {
+  .legal a, .legal .linkish { display: inline-block; padding: 10px 0; }
+  .legal p { margin-bottom: 0; }
+}
 @media (max-width: 720px) { .consent { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); max-width: none; } }
