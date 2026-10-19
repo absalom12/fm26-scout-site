@@ -2,7 +2,7 @@
 
 Static landing page for **[ScoutSheet](https://github.com/absalom12/scoutsheet)**, a local web app that scouts, values and shortlists players straight from a Football Manager 2026 save file.
 
-**Live:** https://scoutsheet.app (Cloudflare Workers static assets)
+**Live:** https://scoutsheet.fm (Cloudflare Workers static assets)
 
 ## Stack
 
@@ -35,7 +35,7 @@ Open http://localhost:8000.
 
 ## Deploy
 
-Hosted on Cloudflare as a Worker named `scoutsheet-site` serving static assets from the repo root (config in `wrangler.jsonc`, exclusions in `.assetsignore`).
+Hosted on Cloudflare as a Worker named `fm26-scout-site` serving static assets from the repo root (config in `wrangler.jsonc`, exclusions in `.assetsignore`).
 
 ```bash
 npx wrangler deploy

@@ -1,5 +1,7 @@
 {
-  "name": "scoutsheet-site",
+  // Old name kept on purpose: installed FM26 Scout builds link to fm26-scout-site.*.workers.dev for downloads.
+  "name": "fm26-scout-site",
   "compatibility_date": "2026-10-12",
-  "assets": { "directory": "." }
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "scoutsheet.fm", "custom_domain": true }]
 }
