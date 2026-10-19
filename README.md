@@ -27,7 +27,7 @@ Open http://localhost:8000.
 
 ## Screenshots
 
-`img/` holds real v0.4.4 captures of the app (3024 px wide Retina PNGs, Bristol Rovers save, January 2028), exported to WebP (quality 80).
+`img/` holds real captures of the app (3024 px wide Retina PNGs), exported to WebP (quality 80). Desktop hero: v0.5.0, January 2028 save, cropped to 3024×1650. The other images are v0.4.4 captures of a Bristol Rovers save, January 2028.
 
 - Hero, desktop: `full`, `fair`, `moneyball` at two widths (`*-1600.webp`, `*-3024.webp`), served with `srcset`.
 - Hero, phone: `full-m`, `fair-m`, `moneyball-m`: the name column and the mode columns, cut side by side.
