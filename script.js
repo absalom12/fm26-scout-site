@@ -8,8 +8,8 @@
 
   // ---------- Config ----------
   var DL = {
-    windows: { url: 'https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-windows.zip', label: 'Windows' },
-    mac: { url: 'https://github.com/absalom12/scoutsheet/releases/latest/download/ScoutSheet-mac.zip', label: 'Mac' }
+    windows: { url: 'https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip', label: 'Windows' },
+    mac: { url: 'https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip', label: 'Mac' }
   };
 
   // ---------- Who's visiting: Windows, Mac, or a phone/tablet that can't install it ----------

@@ -1,6 +1,6 @@
 # ScoutSheet: landing page
 
-Static landing page for **[ScoutSheet](https://github.com/absalom12/scoutsheet)**, a local web app that scouts, values and shortlists players straight from a Football Manager 2026 save file.
+Static landing page for **[ScoutSheet](https://github.com/absalom12/scoutsheetfm)**, a local web app that scouts, values and shortlists players straight from a Football Manager 2026 save file.
 
 **Live:** https://scoutsheet.fm (Cloudflare Workers static assets)
 
