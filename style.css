@@ -470,3 +470,35 @@ h1 em { font-style: inherit; }
 }
 .feat.flip { grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr); }
 @media (max-width: 1080px) { .feat.flip { grid-template-columns: 1fr; } }
+
+/* =====================================================================
+   Readability pass (v0.5.0, after the ScoutSheet rename)
+   ===================================================================== */
+/* Headlines break evenly, paragraphs avoid one-word last lines. */
+h1, h2, h3, .qa summary { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+/* Line length: about 60-70 characters for running text on desktop. */
+.sec-lede { max-width: 32em; }
+.qa p { max-width: 34em; }
+/* Small print: nothing under 15px, and the gold-field notes darker. */
+.bug-note, .legal p, .dl span, .lenses span { font-size: 15px; }
+.facts { font-size: 16px; }
+.note { font-size: 15px; opacity: .8; }
+.mode-block p { color: rgba(7, 9, 12, .9); }
+/* Install: "ScoutSheet." is longer than the old name, so the two download cards
+   no longer fit beside the 200px title. They sit under it now, at a fixed width. */
+.install-head { grid-template-columns: 1fr; gap: 40px; }
+.dl-pair { max-width: 680px; }
+/* Install steps: big numbers in the display face so each step is easy to find. */
+.os-panel ol { gap: 14px; padding-left: 34px; }
+.os-panel li { padding-left: 6px; }
+.os-panel li::marker { font: 900 24px/1 var(--f-display); font-style: italic; color: var(--ink); }
+/* FAQ: lighter questions on phones, a bit more air between question and answer. */
+.qa summary { align-items: baseline; }
+.qa p { margin-top: -4px; }
+@media (max-width: 720px) {
+  .qa summary { font-size: 24px; padding: 20px 0; }
+  .install-head { gap: 32px; }
+  /* "GET SCOUTSHEET." was 352px wide at 76px and lost its full stop under 375px. */
+  .install h2 { font-size: min(76px, 18.5vw); }
+}
