@@ -120,7 +120,7 @@
 
 /* Google Analytics, only after the visitor accepts. The choice is kept in localStorage; "Cookie settings" reopens it. */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-ZBGXZV2K1D';
   var box = document.querySelector('[data-consent]');
   var get = function () { try { return localStorage.getItem('consent'); } catch (e) { return null; } };
   var set = function (v) { try { localStorage.setItem('consent', v); } catch (e) {} };
