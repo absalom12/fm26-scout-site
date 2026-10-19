@@ -1,0 +1,9 @@
+{
+  // Preview before going live: a separate Worker, only on its workers.dev address, no custom domain.
+  // npx wrangler deploy -c wrangler.preview.jsonc
+  "name": "scoutsheet-preview",
+  "compatibility_date": "2026-10-12",
+  "assets": { "directory": "." },
+  "workers_dev": true,
+  "preview_urls": false
+}
