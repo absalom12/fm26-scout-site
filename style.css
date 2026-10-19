@@ -512,8 +512,10 @@ p, li { text-wrap: pretty; }
 .consent[hidden] { display: none; }
 .consent p { margin: 0 0 14px; }
 .consent-btns { display: flex; gap: 10px; justify-content: flex-end; }
-.consent .btn-sm { font-size: 16px; height: 40px; }
-.btn-ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--line2); }
-.btn-ghost:hover { background: transparent; box-shadow: inset 0 0 0 2px var(--text); }
+/* Refuse and Accept look the same on purpose: CNIL requires refusing to be as easy and visible as accepting. */
+.consent .btn-sm { flex: 1; height: 44px; font-size: 16px; padding: 0 16px;
+  background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--text2); }
+.consent .btn-sm:hover { background: transparent; box-shadow: inset 0 0 0 2px var(--text); }
+body:has(.consent:not([hidden])) .dock { display: none; }
 .linkish { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
-@media (max-width: 720px) { .consent { left: 10px; right: 10px; bottom: 10px; max-width: none; } }
+@media (max-width: 720px) { .consent { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); max-width: none; } }
