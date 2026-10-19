@@ -278,7 +278,7 @@
         <details><summary>Does it include women's football?</summary><p>Yes. Every player in the save, men and women, with a switch between them.</p></details>
         <details><summary>Does it need the internet?</summary><p>No. Everything runs on your computer. At launch it asks GitHub whether a newer version exists. If there is, one click installs it and restarts the app. You can turn the check off in Settings. Nothing about you or your save is sent.</p></details>
         <details><summary>Why does Windows warn me about it?</summary><p>Microsoft's signing costs a yearly fee, which a free project doesn't pay, so SmartScreen asks once. Click More info, then Run anyway. The Mac version is signed and notarised by Apple and opens without a warning.</p></details>
-        <details><summary>Does it cost anything?</summary><p>No. It's free and open source. No account, no subscription, and the app itself has no tracking. This website counts visits with Cloudflare Web Analytics: no cookies, nothing about you personally.</p></details>
+        <details><summary>Does it cost anything?</summary><p>No. It's free and open source. No account, no subscription, and the app itself has no tracking. This website counts visits with Cloudflare Web Analytics, and with Google Analytics only if you accept cookies. <button type="button" class="linkish" data-consent-open>Cookie settings</button></p></details>
       </div>
     </div>
   </section>
@@ -297,6 +297,7 @@
     </div>
     <div class="legal">
       <p>Unofficial project, not affiliated with Sports Interactive, SEGA or Football Manager.</p>
+      <p><button type="button" class="linkish" data-consent-open>Cookie settings</button></p>
       <p>Built on <a href="https://github.com/rhiever" target="_blank" rel="noopener">fmsave by Randal Olson</a>.</p>
     </div>
   </div>
@@ -304,6 +305,13 @@
 <div class="dock" data-dock hidden>
   <span class="dock-txt"><b>ScoutSheet</b><span class="dock-sub"> · free, read-only</span></span>
   <a class="btn btn-primary btn-sm" data-dl="dock" href="#install"><span data-dl-text>Download</span></a>
+</div>
+<div class="consent" data-consent role="dialog" aria-label="Cookies" hidden>
+  <p>Can we count your visit with Google Analytics? It sets cookies. Say no and the site works the same.</p>
+  <div class="consent-btns">
+    <button type="button" class="btn btn-sm btn-ghost" data-consent-no>No thanks</button>
+    <button type="button" class="btn btn-sm" data-consent-yes>Accept</button>
+  </div>
 </div>
 <script src="script.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d05d71fa570d41a2819385d51434a635"}'></script>

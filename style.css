@@ -505,3 +505,15 @@ p, li { text-wrap: pretty; }
 
 /* Demo video: loads only when played (preload none), poster in the meantime */
 .demo-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; margin-top: 32px; border-radius: 12px; border: 1px solid var(--line2); background: #000; }
+
+/* cookie consent: Google Analytics loads only after Accept */
+.consent { position: fixed; z-index: 50; left: 18px; bottom: 18px; max-width: 420px; padding: 18px 20px; border-radius: 12px;
+  background: var(--panel); box-shadow: inset 0 0 0 1px var(--line2), 0 18px 50px rgba(0, 0, 0, .5); color: var(--text2); font-size: 15px; line-height: 1.45; }
+.consent[hidden] { display: none; }
+.consent p { margin: 0 0 14px; }
+.consent-btns { display: flex; gap: 10px; justify-content: flex-end; }
+.consent .btn-sm { font-size: 16px; height: 40px; }
+.btn-ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--line2); }
+.btn-ghost:hover { background: transparent; box-shadow: inset 0 0 0 2px var(--text); }
+.linkish { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+@media (max-width: 720px) { .consent { left: 10px; right: 10px; bottom: 10px; max-width: none; } }

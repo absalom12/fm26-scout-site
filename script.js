@@ -117,3 +117,35 @@
   });
   if (os) setOS(os);
 })();
+
+/* Google Analytics, only after the visitor accepts. The choice is kept in localStorage; "Cookie settings" reopens it. */
+(function () {
+  var GA_ID = 'G-XXXXXXXXXX';
+  var box = document.querySelector('[data-consent]');
+  var get = function () { try { return localStorage.getItem('consent'); } catch (e) { return null; } };
+  var set = function (v) { try { localStorage.setItem('consent', v); } catch (e) {} };
+  var loaded = false;
+  function load() {
+    if (loaded) return; loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', GA_ID);
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  }
+  function choose(v) {
+    set(v); box.hidden = true;
+    if (v === 'yes') return load();
+    if (loaded) { // withdrawn: drop the _ga cookies; the script already running stops on the next page load
+      document.cookie.split(';').forEach(function (c) {
+        var n = c.split('=')[0].trim();
+        if (/^_ga/.test(n)) document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname.replace(/^www\./, '');
+      });
+    }
+  }
+  var c = get();
+  if (c === 'yes') load(); else if (c !== 'no') box.hidden = false;
+  document.querySelector('[data-consent-yes]').onclick = function () { choose('yes'); };
+  document.querySelector('[data-consent-no]').onclick = function () { choose('no'); };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-consent-open]'), function (b) { b.onclick = function () { box.hidden = false; }; });
+})();
