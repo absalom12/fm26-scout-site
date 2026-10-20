@@ -35,9 +35,10 @@
   <p>The site has no account, no form and no ads. It measures visits in two ways:</p>
   <ul>
     <li><b>Cloudflare Web Analytics</b>, for everyone. It sets no cookies and does not identify you: it counts page views, the referring site, the country and the type of device.</li>
+    <li><b>Our own count</b>, for everyone. No cookie and no identifier, and your IP address is not kept: the site only adds to daily totals per page of how long pages stay on screen and how the cookie banner is answered.</li>
     <li><b>Google Analytics 4</b>, only if you click Accept on the cookie banner. It sets cookies (<code>_ga</code>, <code>_ga_*</code>) for up to 13 months and tells Google which pages you view, how long you stay, your device, browser and approximate location. Google Signals and ad personalisation are turned off.</li>
   </ul>
-  <p><b>Why:</b> to understand how many people visit, where they come from and what they read, so the site can get better. <b>Legal basis:</b> your consent (GDPR art. 6(1)(a)) for Google Analytics; legitimate interest for the cookieless Cloudflare count.</p>
+  <p><b>Why:</b> to understand how many people visit, where they come from and what they read, so the site can get better. <b>Legal basis:</b> your consent (GDPR art. 6(1)(a)) for Google Analytics; legitimate interest for the cookieless counts.</p>
   <p><b>Who receives it:</b> Google Ireland Ltd and Google LLC (USA) for Google Analytics; Cloudflare for hosting and its analytics. Transfers to the USA are covered by the EU–US Data Privacy Framework, under which both companies are certified.</p>
   <p><b>How long:</b> Google Analytics data is kept for 14 months, then deleted. Your cookie choice is remembered for 6 months in your browser, then you are asked again.</p>
 
@@ -52,6 +53,7 @@
     <button type="button" class="btn btn-sm" data-consent-yes>Accept</button>
   </div>
 </div>
+<script src="stats.js"></script>
 <script src="consent.js"></script>
 </body>
 </html>

@@ -3,8 +3,9 @@
   "name": "fm26-scout-site",
   "compatibility_date": "2026-10-12",
   "main": "worker.js",
-  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/img/*.mp4"] },
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/stats", "/img/*.mp4"] },
   "workers_dev": true,  // the old address installed builds link to
   "preview_urls": false,
+  "d1_databases": [{ "binding": "DB", "database_name": "scoutsheet-stats", "database_id": "81b0646c-650b-46d5-9e80-844cc3237b98" }],
   "routes": [{ "pattern": "scoutsheet.fm", "custom_domain": true }, { "pattern": "www.scoutsheet.fm", "custom_domain": true }]
 }

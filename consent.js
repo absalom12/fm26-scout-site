@@ -21,6 +21,7 @@
   }
   function choose(v) {
     set(v); box.hidden = true;
+    stat(v === 'yes' ? 'consent_yes' : 'consent_no');
     if (v === 'yes') return load();
     if (loaded) { // withdrawn: drop the _ga cookies; the script already running stops on the next page load
       document.cookie.split(';').forEach(function (c) {
@@ -30,7 +31,7 @@
     }
   }
   var c = get();
-  if (c === 'yes') load(); else if (c !== 'no') box.hidden = false;
+  if (c === 'yes') load(); else if (c !== 'no') { box.hidden = false; stat('banner'); }
   document.querySelector('[data-consent-yes]').onclick = function () { choose('yes'); };
   document.querySelector('[data-consent-no]').onclick = function () { choose('no'); };
   Array.prototype.forEach.call(document.querySelectorAll('[data-consent-open]'), function (b) { b.onclick = function () { box.hidden = false; box.querySelector('button').focus(); }; });
