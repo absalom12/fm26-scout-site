@@ -19,7 +19,7 @@
 <link rel="preload" as="image" href="img/full-m.webp" media="(max-width: 720px)" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-900i-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/Barlow-400-latin.woff2" crossorigin>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=0.6.0">
 </head>
 <body data-lens="full">
 <a class="skip" href="#main">Skip to content</a>
@@ -50,7 +50,7 @@
     <div class="beams" aria-hidden="true"><i class="beam b-full"></i><i class="beam b-fair"></i><i class="beam b-money"></i></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 26 · v0.5.3</p>
+        <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 26 · v0.6.0</p>
         <h1 id="hero-title"><span>Sign the stats.</span><span>Not the name.</span></h1>
         <div class="hero-side">
           <p class="lede">ScoutSheet pulls every player out of <strong>your own FM26 save</strong> and puts them in one place. Scout them in the app, Moneyball style if you like, or export the data and dig in with your own tools. Find the players who are better than their price.</p>
@@ -58,13 +58,13 @@
         </div>
 
         <div class="cta" data-cta>
-          <a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip">
+          <div class="cta-col"><a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run ScoutSheet.exe</small></span></a>
-          <a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip">
+            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run ScoutSheet.exe</small></span></a></div>
+          <div class="cta-col"><a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             <span class="btn-lines"><span data-dl-text>Download for Mac</span><small data-dl-sub>Apple Silicon, signed by Apple</small></span></a>
-          <p class="cta-alt cta-note">Free. Ready in about three minutes.</p>
+            <a class="cta-intel" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac-intel.zip" data-dl-intel>Intel Mac? Download here</a></div>
         </div>
         <div class="cta" data-cta-phone hidden>
           <button class="btn btn-primary" type="button" data-share>Send the link to my computer</button>
@@ -239,6 +239,7 @@
         <div class="dl-pair">
           <a class="dl" data-os="windows" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip"><b>Windows</b><span>ScoutSheet-windows.zip</span><em class="dl-you">Your system</em></a>
           <a class="dl" data-os="mac" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip"><b>Mac</b><span>Apple Silicon (M1 or later)</span><em class="dl-you">Your system</em></a>
+          <a class="dl" data-os="mac-intel" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac-intel.zip"><b>Mac Intel</b><span>Intel processor (2020 and older)</span></a>
         </div>
       </div>
       <div class="first-launch">
@@ -259,7 +260,7 @@
             <li>Unzip <code>ScoutSheet-mac.zip</code>.</li>
             <li>Drag ScoutSheet to Applications, then double-click it. From there it can install its own updates.</li>
             <li>The app opens in its own window. Pick your save.</li></ol>
-            <p class="note">Apple Silicon Macs only (M1 or later). Intel Macs aren't supported.</p></div>
+            <p class="note">Intel Mac? Download <code>ScoutSheet-mac-intel.zip</code> instead; the steps are the same. Not sure which you have: Apple menu → About This Mac, "Chip" means Apple Silicon, "Processor" means Intel.</p></div>
         </div>
       </div>
     </div>
@@ -313,7 +314,7 @@
     <button type="button" class="btn btn-sm" data-consent-yes>Accept</button>
   </div>
 </div>
-<script src="script.js"></script>
+<script src="script.js?v=0.6.0"></script>
 <script src="stats.js"></script>
 <script src="consent.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d05d71fa570d41a2819385d51434a635"}'></script>

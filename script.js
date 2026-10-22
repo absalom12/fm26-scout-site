@@ -30,6 +30,7 @@
       $('[data-dl-text]', b).textContent = 'Download for ' + DL[id].label;
       $('[data-dl-sub]', b).textContent = SUB[id];
     });
+    $('[data-dl="' + (os === 'mac' ? 'primary' : 'secondary') + '"]').parentNode.appendChild($('[data-dl-intel]'));
     var d = $('[data-dl="dock"]');
     d.href = DL[os].url; $('[data-dl-text]', d).textContent = 'Download for ' + DL[os].label;
   }

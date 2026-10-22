@@ -213,8 +213,11 @@ h1 > span { display: block; }
 h1 em { font-style: inherit; }
 .lede { margin: 36px 0 0; max-width: 33em; font-size: clamp(19px, 1.7vw, 22px); color: var(--text2); }
 .lede strong { color: var(--text); font-weight: 600; }
-.cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px 26px; }
 .cta[hidden] { display: none; }
+.cta-col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cta-intel { color: var(--muted); font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+.cta-intel:hover { color: var(--text2); }
 .cta-alt { margin: 0; color: var(--muted); font-size: 16px; }
 .cta-alt a { color: var(--text2); }
 .facts { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; color: var(--muted); font-size: 15px; }
@@ -298,7 +301,9 @@ h1 em { font-style: inherit; }
 .install-head { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; }
 .install h2 { font-size: clamp(76px, 12vw, 200px); line-height: .8; }
 .install-lede { margin: 26px 0 0; font-size: 22px; font-weight: 500; }
-.dl-pair { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 14px; }
+.dl-pair { display: grid; grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 14px; }
+@media (max-width: 860px) { .dl-pair { grid-template-columns: 1fr; } }
+.cta-note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .dl { position: relative; display: grid; gap: 4px; padding: 24px 26px; border-radius: 12px; text-decoration: none; color: var(--ink); border: 2px solid var(--ink); background: transparent;
   transition: transform .2s var(--ease), background-color .2s; }
 .dl b { font: 900 38px/1 var(--f-display); font-style: italic; text-transform: uppercase; }
@@ -488,7 +493,7 @@ p, li { text-wrap: pretty; }
 /* Install: "ScoutSheet." is longer than the old name, so the two download cards
    no longer fit beside the 200px title. They sit under it now, at a fixed width. */
 .install-head { grid-template-columns: 1fr; gap: 40px; }
-.dl-pair { max-width: 680px; }
+.dl-pair { max-width: 920px; }
 /* Install steps: big numbers in the display face so each step is easy to find. */
 .os-panel ol { gap: 14px; padding-left: 34px; }
 .os-panel li { padding-left: 6px; }
