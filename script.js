@@ -40,7 +40,7 @@
   $$('[data-share]').forEach(function (b) {
     b.addEventListener('click', function () {
       var url = location.href.split('#')[0];
-      if (navigator.share) { navigator.share({ title: 'ScoutSheet', text: 'Scouting dashboard for my FM26 save, install on my computer', url: url }).catch(function () {}); return; }
+      if (navigator.share) { navigator.share({ title: 'ScoutSheet', text: 'Scouting dashboard for my FM27 save, install on my computer', url: url }).catch(function () {}); return; }
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () { b.textContent = 'Link copied. Open it on your computer.'; },
         function () { b.textContent = url; });
     });
