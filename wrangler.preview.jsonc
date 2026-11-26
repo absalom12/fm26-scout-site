@@ -4,7 +4,10 @@
   "name": "scoutsheet-preview",
   "compatibility_date": "2026-10-12",
   "main": "worker.js",
-  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/stats", "/app-stats", "/img/*.mp4"] },
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/stats", "/app-stats", "/api/*", "/img/*.mp4"] },
   "workers_dev": true,
-  "preview_urls": false
+  "preview_urls": false,
+  // its own database, so analyst tests never touch the live counts
+  "d1_databases": [{ "binding": "DB", "database_name": "scoutsheet-analyst-preview", "database_id": "debe9fbf-3351-4643-bc59-74fddcb0919f" }],
+  "vars": { "BUDGET_USD": "5", "POLAR_ORG_ID": "0b37eb6f-158b-4e9e-b8b0-8219067dd0b1" }  // preview: small cap
 }

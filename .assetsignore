@@ -8,3 +8,7 @@ README.md
 node_modules
 worker.js
 schema.sql
+analyst.js
+.dev.vars*
+analyst.prompt.js
+analyst.prompt.example.js

@@ -3,10 +3,11 @@
   "name": "fm26-scout-site",
   "compatibility_date": "2026-10-12",
   "main": "worker.js",
-  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/stats", "/app-stats", "/img/*.mp4"] },
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/stats", "/app-stats", "/api/*", "/img/*.mp4"] },
   "workers_dev": true,  // the old address installed builds link to
   "preview_urls": false,
-  "triggers": { "crons": ["17 3 * * *"] },  // deletes app usage counts older than 14 months
+  "triggers": { "crons": ["17 * * * *"] },  // hourly: dashboard summary; at 03:17 UTC also the 14-month clean-up (worker.js scheduled)
   "d1_databases": [{ "binding": "DB", "database_name": "scoutsheet-stats", "database_id": "81b0646c-650b-46d5-9e80-844cc3237b98" }],
+  "vars": { "BUDGET_USD": "20", "POLAR_ORG_ID": "0b37eb6f-158b-4e9e-b8b0-8219067dd0b1" },  // licence keys are checked with Polar
   "routes": [{ "pattern": "scoutsheet.fm", "custom_domain": true }, { "pattern": "www.scoutsheet.fm", "custom_domain": true }]
 }

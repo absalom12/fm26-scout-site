@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ScoutSheet · Moneyball for your Football Manager 27 save</title>
+<title>ScoutSheet | Moneyball for your Football Manager 27 save</title>
 <meta name="description" content="ScoutSheet pulls every player out of your Football Manager 27 save. Scout them in the app, Moneyball included, or export the data to your own tools. Free, runs on your computer, Windows and Mac.">
 <meta name="theme-color" content="#07090c">
 <link rel="canonical" href="https://scoutsheet.fm/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoutsheet.fm/">
-<meta property="og:title" content="ScoutSheet · Sign the stats, not the name">
+<meta property="og:title" content="ScoutSheet | Sign the stats, not the name">
 <meta property="og:description" content="Your FM27 save. Your data. Scout your way: Full, Fair play or Moneyball, or export everything to a spreadsheet. Free, read-only, your save never leaves your computer.">
 <meta property="og:image" content="https://scoutsheet.fm/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <link rel="preload" as="image" href="img/full-m.webp" media="(max-width: 720px)" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/BarlowCondensed-900i-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/Barlow-400-latin.woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=0.6.0">
+<link rel="stylesheet" href="style.css?v=0.7.1-home1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,13 +54,14 @@
     </picture>
   </a>
   <nav class="nav" aria-label="Sections">
-    <a href="#how">How it works</a><a href="#modes">Modes</a><a href="#features">Features</a><a href="#install">Install</a><a href="#faq">FAQ</a>
+    <a href="#how">How it works</a><a href="#modes">Modes</a><a href="#features">Features</a><a href="#install">Install</a><a class="ai" href="#analyst">Analyst</a><a href="#faq">FAQ</a>
   </nav>
   <div class="top-end">
     <a class="social" href="https://github.com/absalom12/scoutsheetfm" aria-label="ScoutSheet on GitHub" title="GitHub" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg></a>
     <a class="social social-x" href="https://x.com/AbsalomeSama" aria-label="Follow @AbsalomeSama on X" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43Z"/></svg><span>@AbsalomeSama</span></a>
+    <a class="btn btn-sm btn-sup" href="/supporter"><span class="dot-ai" aria-hidden="true"></span>Supporter</a>
     <a class="btn btn-sm" href="#install">Download</a>
   </div>
 </header>
@@ -72,36 +73,38 @@
     <div class="beams" aria-hidden="true"><i class="beam b-full"></i><i class="beam b-fair"></i><i class="beam b-money"></i></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 27 · v0.7.1</p>
+        <p class="kicker"><span class="dot"></span>Free scouting tool for Football Manager 26 and 27 | v0.7.1</p>
         <h1 id="hero-title"><span>Sign the stats.</span><span>Not the name.</span></h1>
         <div class="hero-side">
-          <p class="lede">ScoutSheet pulls every player out of <strong>your own FM27 save</strong> and puts them in one place. Scout them in the app, Moneyball style if you like, or export the data and dig in with your own tools. Find the players who are better than their price.</p>
-          <ul class="facts" aria-label="At a glance"><li>Free &amp; open source</li><li>Runs on your computer, works offline</li><li>Read-only: never writes to your save</li></ul>
+          <p class="lede">Every player in <strong>your own save</strong>, in one table. Find the ones better than their price.</p>
+          <div class="cta" data-cta>
+            <a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run ScoutSheet.exe</small></span></a>
+            <a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              <span class="btn-lines"><span data-dl-text>Download for Mac</span><small data-dl-sub>Apple Silicon</small></span></a>
+          </div>
+          <div class="cta cta-phone" data-cta-phone hidden>
+            <button class="btn btn-hero btn-primary" type="button" data-share>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7h16v-7M12 15V4m0 0-4 4m4-4 4 4"/></svg>
+              <span class="btn-lines"><span data-share-text>Send the link to my computer</span><small>Free. Windows and Mac. FM26 and FM27.</small></span></button>
+          </div>
+          <p class="htrust" tabindex="0" data-tip="The save is only read, never changed. ScoutSheet works on its own copy of the player data, on your computer."><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Read-only. Your save never leaves your computer.</p>
+          <p class="hlinks"><a href="img/demo.mp4" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the demo, 74 s</a><a class="only-desk" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac-intel.zip">Intel Mac?</a><a class="only-desk" href="https://github.com/absalom12/scoutsheetfm" target="_blank" rel="noopener">Open source on GitHub</a></p>
+          
         </div>
 
-        <div class="cta" data-cta>
-          <div class="cta-col"><a class="btn btn-hero btn-primary" data-dl="primary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-            <span class="btn-lines"><span data-dl-text>Download for Windows</span><small data-dl-sub>Unzip, then run ScoutSheet.exe</small></span></a></div>
-          <div class="cta-col"><a class="btn btn-hero btn-outline" data-dl="secondary" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac.zip">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-            <span class="btn-lines"><span data-dl-text>Download for Mac</span><small data-dl-sub>Apple Silicon, signed by Apple</small></span></a>
-            <a class="cta-intel" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-mac-intel.zip" data-dl-intel>Intel Mac? Download here</a></div>
-        </div>
-        <div class="cta" data-cta-phone hidden>
-          <button class="btn btn-primary" type="button" data-share>Send the link to my computer</button>
-          <p class="cta-alt">ScoutSheet runs on Windows and Apple Silicon Macs.</p>
-        </div>
       </div>
     </div>
 
     <div class="wrap stage-wrap">
-      <div class="lens-col">
-        <p class="lens-label">Three ways to scout. Pick one, the screen switches.</p>
+      <div class="lens-col" id="modes">
+        <h2 class="lens-label" id="modes-title">Pick how much you want to know.</h2>
         <div class="lenses" role="tablist" aria-label="Scouting mode">
-        <button role="tab" id="lens-full" aria-selected="true" aria-controls="hero-stage" data-lens="full" style="--m:var(--full)"><b>Full</b><span>Every number, CA and PA included</span><i class="timer" aria-hidden="true"></i></button>
-        <button role="tab" id="lens-fair" aria-selected="false" aria-controls="hero-stage" data-lens="fair" tabindex="-1" style="--m:var(--fair)"><b>Fair play</b><span>Only what your scouts would see</span><i class="timer" aria-hidden="true"></i></button>
-        <button role="tab" id="lens-moneyball" aria-selected="false" aria-controls="hero-stage" data-lens="moneyball" tabindex="-1" style="--m:var(--money)"><b>Moneyball</b><span>Match results only, no attributes</span><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-full" aria-selected="true" aria-controls="hero-stage" data-lens="full" style="--m:var(--full)"><b>Full</b><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-fair" aria-selected="false" aria-controls="hero-stage" data-lens="fair" tabindex="-1" style="--m:var(--fair)"><b>Fair play</b><i class="timer" aria-hidden="true"></i></button>
+        <button role="tab" id="lens-moneyball" aria-selected="false" aria-controls="hero-stage" data-lens="moneyball" tabindex="-1" style="--m:var(--money)"><b>Moneyball</b><i class="timer" aria-hidden="true"></i></button>
         </div>
       </div>
       <div class="hero-stage" id="hero-stage" role="tabpanel" aria-labelledby="lens-full">
@@ -110,142 +113,113 @@
             <picture class="lens-img on" data-lens="full">
               <source media="(max-width: 720px)" srcset="img/full-m.webp" width="890" height="790">
               <img src="img/full-1600.webp" srcset="img/full-1600.webp 1600w, img/full-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" fetchpriority="high"
-                   alt="Full mode: Mbappé, Haaland, Bonmatí and others with current and potential ability (196 and 197 for Mbappé), best role, form, price and wage.">
+                   alt="Full mode: Haaland, Mbappé, Yamal and others with current and potential ability (185 and 195 for Yamal), best role, performance, value and wage.">
             </picture>
             <picture class="lens-img" data-lens="fair">
-              <source media="(max-width: 720px)" srcset="img/fair-m.webp" width="854" height="790">
+              <source media="(max-width: 720px)" srcset="img/fair-m.webp" width="890" height="790">
               <img src="img/fair-1600.webp" srcset="img/fair-1600.webp 1600w, img/fair-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" loading="lazy"
-                   alt="Fair play mode: the same players without current or potential ability. Each one shows his best role and his main visible attributes, like dribbling 18 and finishing 18 for Mbappé.">
+                   alt="Fair play mode: the same players without current or potential ability. Each one shows star ratings, his best role and his main visible attributes, like dribbling 19 and crossing 18 for Yamal.">
             </picture>
             <picture class="lens-img" data-lens="moneyball">
-              <source media="(max-width: 720px)" srcset="img/moneyball-m.webp" width="860" height="790">
+              <source media="(max-width: 720px)" srcset="img/moneyball-m.webp" width="890" height="790">
               <img src="img/moneyball-1600.webp" srcset="img/moneyball-1600.webp 1600w, img/moneyball-3024.webp 3024w" sizes="(max-width: 1320px) 100vw, 1280px" width="3024" height="1650" loading="lazy"
-                   alt="Moneyball mode, season view: every player ranked by a performance score from his matches, with appearances, minutes, rating, goals, assists and expected goals. Haaland: 93, 16 goals, 7.60 rating.">
+                   alt="Moneyball mode, season view: every player ranked by a performance score from his matches, with appearances, minutes, rating, goals, assists and expected goals. Yamal: 95, 14 goals, 7.37 rating.">
             </picture>
             <span class="scanline" aria-hidden="true"></span>
           </div>
         </div>
-        <p class="lower-third"><span class="lt-tag" data-lt-tag>Full</span><span data-lt-text>CA and PA, straight from the save.</span></p>
+        <div class="hcard" aria-label="One player, seen through the mode you picked">
+          <span class="hc-tag" tabindex="0" data-lt-tip><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.600-6 10-6 10 6 10 6-3.600 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.500"/></svg><span data-lt-tag>Full</span></span>
+          <div class="hc-who"><b>Yamal</b><small>AMR, 19</small></div>
+          <div class="hcell" data-in="full"><small>CA</small><b>185</b></div>
+          <div class="hcell" data-in="full"><small>PA</small><b>195</b></div>
+          <div class="hcell" data-in="full fair"><small>Dri</small><b>19</b></div>
+          <div class="hcell" data-in="full fair moneyball"><small>Score</small><b>95</b></div>
+          <div class="hcell" data-in="full fair moneyball"><small>Rating</small><b>7.37</b></div>
+        </div>
       </div>
     </div>
 
-    <!-- Broadcast ticker: real values from the app screenshots (Bristol Rovers save, January 2028). Decorative. -->
-    <div class="ticker" aria-hidden="true"><div class="ticker-track">
-      <span><b>Mbappé</b> Ability <em class="c-full">196</em></span><span><b>Haaland</b> Expected goals <em class="c-money">12.69</em></span><span><b>Olise</b> Rating <em class="c-money">7.78</em></span><span><b>Bellingham</b> Ability <em class="c-full">187</em></span><span><b>Wirtz</b> Price <em class="c-fair">£160M</em></span><span><b>Bonmatí</b> Ability <em class="c-full">191</em></span><span><b>Saka</b> Price <em class="c-fair">£181M</em></span><span><b>Lauren James</b> Form <em class="c-money">95</em></span>
-      <span><b>Mbappé</b> Ability <em class="c-full">196</em></span><span><b>Haaland</b> Expected goals <em class="c-money">12.69</em></span><span><b>Olise</b> Rating <em class="c-money">7.78</em></span><span><b>Bellingham</b> Ability <em class="c-full">187</em></span><span><b>Wirtz</b> Price <em class="c-fair">£160M</em></span><span><b>Bonmatí</b> Ability <em class="c-full">191</em></span><span><b>Saka</b> Price <em class="c-fair">£181M</em></span><span><b>Lauren James</b> Form <em class="c-money">95</em></span>
-    </div></div>
-
-    <div class="wrap">
-      <dl class="bug">
-        <div><dt>Players in one save</dt><dd>75,167</dd></div>
-        <div><dt>Scouting modes</dt><dd>3</dd></div>
-        <div><dt>To read your save</dt><dd>~1<small>min</small></dd></div>
-        <div><dt>Bytes uploaded</dt><dd>0</dd></div>
-      </dl>
-      <p class="bug-note">Every number on this page comes from one real Bristol Rovers save, January 2028. Your player count depends on your database.</p>
-    </div>
   </section>
 
-  <!-- ===== DEMO: the app in 74 seconds ===== -->
-  <section class="band demo" id="demo" aria-labelledby="demo-title">
-    <div class="wrap">
-      <p class="eyebrow">See it</p>
-      <h2 id="demo-title">The app in 74 seconds.</h2>
-      <video class="demo-video" controls preload="none" playsinline poster="img/demo-poster.webp" width="1920" height="1080">
-        <source src="img/demo.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <!-- ===== THE BIG IDEA: your save -> your data -> scout your way ===== -->
-  <section class="band flow" id="how" aria-labelledby="flow-title">
+  <!-- ===== HOW IT WORKS: save, data, your way ===== -->
+  <section class="band" id="how" aria-labelledby="flow-title">
     <div class="wrap">
       <p class="eyebrow">How it works</p>
       <h2 id="flow-title">Your save.<br>Your data.<br>Your way.</h2>
-      <p class="sec-lede">Football Manager keeps every player's numbers locked inside your save. ScoutSheet opens it up, on your own computer, and hands the data back to you.</p>
-      <ol class="flow-steps">
-        <li class="fs" style="--m:var(--full)">
-          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22l12 12v40H16z"/><path d="M38 6v12h12"/><path d="M24 34h18M24 42h18M24 50h10"/><circle cx="27" cy="22" r="3"/></svg>
-          <p class="fs-n">01</p><h3>Your save</h3>
-          <p>Pick your FM27 save. ScoutSheet reads it in about a minute and never changes it. Nothing is uploaded.</p>
-        </li>
-        <li class="fs" style="--m:var(--fair)">
-          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="4"/><path d="M8 24h48M8 34h48M8 44h48M24 12v40M40 12v40"/></svg>
-          <p class="fs-n">02</p><h3>Your data</h3>
-          <p>Every player in the game, all 75,167 in our test save: attributes, season stats, contracts, fees, wages. Men and women.</p>
-        </li>
-        <li class="fs" style="--m:var(--money)">
-          <svg class="fs-ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="15"/><path d="m38 38 16 16"/><path d="M20 31l5-6 4 4 6-8"/></svg>
-          <p class="fs-n">03</p><h3>Scout your way</h3>
-          <p class="fs-or"><b>In the app:</b> sort, filter and compare everyone, Moneyball included, then build your shortlist.</p>
-          <p class="fs-or"><b>Or anywhere else:</b> export any list, with every column, to a spreadsheet file (CSV) and open it in Excel, Google Sheets or your own tools.</p>
-        </li>
-      </ol>
+      <div class="pipe">
+        <div class="pnode n1" tabindex="0" data-tip="Pick your FM26 or FM27 save. ScoutSheet reads it in about a minute and never changes it.">
+          <span class="pni" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg></span>
+          <h3>Your save</h3>
+          <p class="pbig">~1<small>min</small></p>
+          <span class="pst">Read-only</span>
+        </div>
+        <div class="plink l1"><span class="pstamp" tabindex="0" data-tip="Your save is not uploaded. It is read and worked on your computer."><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>0 bytes up</span></div>
+        <div class="pnode n2" tabindex="0" data-tip="Every player in the save: attributes, season stats, contracts, fees, wages. This count and the captures of the modes and tools come from one real FM27 save, April 2027. Your count depends on your database.">
+          <span class="pni" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.300 7-3V6M5 12v6c0 1.700 3.100 3 7 3s7-1.300 7-3v-6"/></svg></span>
+          <h3>Your data</h3>
+          <p class="pbig">85,361<small>players</small></p>
+          <span class="pst">Men and women</span>
+        </div>
+        <div class="plink l2"><span class="par" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></div>
+        <div class="pnode n3" tabindex="0" data-tip="In the app: sort, filter and compare everyone, then build your shortlist. Or export any list, with every column, to a spreadsheet file.">
+          <span class="pni" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M10 10v9"/></svg></span>
+          <h3>Your way</h3>
+          <p class="pboth"><span>App</span><span>CSV</span></p>
+          <span class="pst">Export any list</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== MODES: three colour blocks, in the colour the app uses for each mode ===== -->
-  <section class="modes" id="modes" aria-labelledby="modes-title">
-    <div class="wrap modes-head">
-      <p class="eyebrow">Run the window your way</p>
-      <h2 id="modes-title">Pick how much<br>you want to know.</h2>
-    </div>
-    <div class="mode-row">
-      <article class="mode-block m-full">
-        <p class="mb-n">01</p><h3>Full</h3>
-        <p class="who">The whole truth.</p>
-        <p>Current and potential ability, hidden attributes, personality, and a written scouting report on every player. Wonderkids in seconds.</p>
-      </article>
-      <article class="mode-block m-fair">
-        <p class="mb-n">02</p><h3>Fair play</h3>
-        <p class="who">Find them yourself.</p>
-        <p>Only what your scouts would tell you in the game. No potential, no hidden attributes. Your save stays a challenge.</p>
-      </article>
-      <article class="mode-block m-money">
-        <p class="mb-n">03</p><h3>Moneyball</h3>
-        <p class="who">Only results count.</p>
-        <p>Attributes switched off. Players are judged on what they actually do in matches, and put next to what they cost.</p>
-      </article>
-    </div>
-    <p class="wrap modes-foot">One click switches modes. Same save, same players, different eyes.</p>
-  </section>
-
-  <!-- ===== THREE FEATURES, ONE STRONG VISUAL EACH ===== -->
-  <section class="band feats" id="features" aria-labelledby="feats-title">
+  <!-- ===== THREE TOOLS, ONE REAL CAPTURE EACH ===== -->
+  <section class="band" id="features" aria-labelledby="feats-title">
     <div class="wrap">
       <p class="eyebrow">Your perfect window</p>
       <h2 id="feats-title">Spend less.<br>Sign better.</h2>
-
-      <article class="feat" style="--m:var(--money)">
-        <div class="feat-text">
-          <h3>See where your team is weak.</h3>
-          <p>ScoutSheet rates every position in your team and shows the weakest first. Click one and get the players who would make it better, with what they cost.</p>
+      <div class="tools" data-tools>
+        <div class="ttabs" role="tablist" aria-label="Tools">
+          <button type="button" role="tab" id="tt-1" aria-controls="tp-1" aria-selected="true"><i>01</i><b>Weak spots</b></button>
+          <button type="button" role="tab" id="tt-2" aria-controls="tp-2" aria-selected="false"><i>02</i><b>One look</b></button>
+          <button type="button" role="tab" id="tt-3" aria-controls="tp-3" aria-selected="false"><i>03</i><b>Bargains</b></button>
         </div>
-        <figure class="shot">
-          <img src="img/club-pitch.webp" width="708" height="1134" loading="lazy" alt="Bristol Rovers on a pitch in a 4-2-3-1. Each player has a score in a coloured circle: green where the team is strong, red where it is weak, like 47 at right wing.">
-        </figure>
-      </article>
-
-      <article class="feat flip" style="--m:var(--fair)">
-        <div class="feat-text">
-          <h3>Know a player in one look.</h3>
-          <p>Where he plays, what he's good at, and how he compares with other players in his position. His stats, his price, his contract and similar players are one tab away.</p>
+        <div class="tpanels">
+          <div class="tpanel p1" id="tp-1" role="tabpanel" aria-labelledby="tt-1">
+            <div class="tph"><h3>See where your team is weak.</h3>
+              <span class="tstat" tabindex="0" data-tip="ScoutSheet rates every position in your team and shows the weakest first. Click one and get the players who would make it better, with what they cost."><b>5</b><span>weakest slots</span></span></div>
+            <picture class="tshot"><source media="(max-width: 760px)" srcset="img/club-m.webp" width="1310" height="1000">
+              <img src="img/club-1600.webp" width="1600" height="873" loading="lazy" alt="My Club for Olympique Lyonnais: the starting eleven on a pitch in a 4-2-3-1, each player with a coloured score, the five weakest slots listed, and transfer targets for the weakest one."></picture>
+          </div>
+          <div class="tpanel p2" id="tp-2" role="tabpanel" aria-labelledby="tt-2">
+            <div class="tph"><h3>Know a player in one look.</h3>
+              <span class="tstat" tabindex="0" data-tip="Where he plays, what he is good at, and how he compares with other players in his position. Stats, price, contract and similar players are one tab away."><b>4</b><span>scores</span></span></div>
+            <picture class="tshot"><source media="(max-width: 760px)" srcset="img/player-m.webp" width="1418" height="1052">
+              <img src="img/player-1600.webp" width="1600" height="873" loading="lazy" alt="The player page of Lamine Yamal: his attributes, a pitch with his positions and four scored panels for finishing, creating, carrying and defending."></picture>
+          </div>
+          <div class="tpanel p3" id="tp-3" role="tabpanel" aria-labelledby="tt-3">
+            <div class="tph"><h3>Spot the bargains.</h3>
+              <span class="tstat" tabindex="0" data-tip="Every player gets a fair price, based on similar players in your own save. Here: Melvin Bard at £4.3M, 88% under his fair value of £36M."><b>-88%</b><span>Melvin Bard</span></span></div>
+            <picture class="tshot"><source media="(max-width: 760px)" srcset="img/price-m.webp" width="900" height="1020">
+              <img src="img/price-1600.webp" width="1600" height="873" loading="lazy" alt="The price page of Melvin Bard: a steal, asking £4.3M, £31M under his fair value, with the fair fee from four lenses and his value against other full-backs."></picture>
+          </div>
         </div>
-        <figure class="shot">
-          <picture><source media="(max-width: 720px)" srcset="img/okou-pitch-m.webp" width="1028" height="682"><img src="img/okou-pitch.webp" width="1524" height="682" loading="lazy" alt="A player page: a pitch shows he plays striker and right wing, and four panels score him on finishing, creating, carrying the ball and defending."></picture>
-        </figure>
-      </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="feat" style="--m:var(--money)">
-        <div class="feat-text">
-          <h3>Spot the bargains.</h3>
-          <p>Every player gets a fair price, based on similar players in your own save. Then you see who sells for far less than he's worth.</p>
-          <p class="feat-note">Here: Nico Paz at £15M, 59% under his fair price, while players at his level cost £100M and more.</p>
-        </div>
-        <figure class="shot">
-          <img src="img/paz-map.webp" width="1592" height="730" loading="lazy" alt="A chart of players similar to Nico Paz, by level and price. Paz, the ring, sits on his own near £15M; Pedri, Kubo, Güler and Kvaratskhelia are at a similar level between £100M and £233M.">
-        </figure>
-      </article>
+  <!-- ===== ANALYST: the one paid part, a teaser that links to /supporter ===== -->
+  <section class="ana" id="analyst" aria-labelledby="ana-title">
+    <div class="wrap ana-grid">
+      <div>
+        <p class="eyebrow">Recruitment Analyst</p>
+        <h2 id="ana-title">Describe the player.<br>Get the search.</h2>
+        <p class="afree" tabindex="0" data-tip="Your first 10 Analyst searches are free, so you can judge it before paying. The app itself stays free."><span class="apips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>10 free searches</p>
+        <div class="ana-acts"><a class="btn btn-ai" href="/supporter">See the analyst</a></div>
+      </div>
+      <a class="aimg" href="/supporter" aria-label="See the analyst: a real search in the app">
+        <video class="aimg-d" id="ana-loop" muted loop playsinline preload="none" poster="img/analyst-real-poster.webp" width="1280" height="656" aria-label="Capture of the Recruitment Analyst in ScoutSheet: a request is typed, the analyst reads it, then the players are ranked by Fit"><source src="img/analyst-real.mp4" type="video/mp4"></video>
+        <img class="aimg-m" src="img/analyst-real-m.webp" width="1400" height="1180" loading="lazy" alt="The app after an analyst search: the request, how it was read, the first ranked players">
+      </a>
     </div>
   </section>
 
@@ -256,7 +230,8 @@
         <div>
           <p class="eyebrow ink">Transfer window's open</p>
           <h2 id="install-title">Get<br>ScoutSheet.</h2>
-          <p class="install-lede">Free. Read-only. Works offline. Your save never leaves your computer.</p>
+          <button class="ishare" type="button" data-share data-inst-phone hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7h16v-7M12 15V4m0 0-4 4m4-4 4 4"/></svg><span><b data-share-text>Send the link to my computer</b><small>Then download there</small></span></button>
+          <p class="install-lede unof">Unofficial. Not affiliated with Sports Interactive, SEGA or Football Manager.</p>
         </div>
         <div class="dl-pair">
           <a class="dl" data-os="windows" href="https://github.com/absalom12/scoutsheetfm/releases/latest/download/ScoutSheet-windows.zip"><b>Windows</b><span>ScoutSheet-windows.zip</span><em class="dl-you">Your system</em></a>
@@ -267,7 +242,6 @@
       <div class="first-launch">
         <div class="fl-intro">
           <h3>First launch, step by step.</h3>
-          <p>On Mac, the app is signed and notarised by Apple, so it opens like any other app. On Windows, SmartScreen asks you to confirm once. The code is public on GitHub if you want to check what it does.</p>
         </div>
         <div class="fl-tabs">
           <div class="os-switch" role="tablist" aria-label="Your system">
@@ -293,7 +267,7 @@
     <div class="wrap faq-grid">
       <div><p class="eyebrow">Before you ask</p><h2 id="faq-title">FAQ</h2></div>
       <div class="qa">
-        <details open><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. ScoutSheet makes its own copy of the player data on your computer and works from that.</p></details>
+        <details><summary>Can it break or change my save?</summary><p>No. The save is only read, never written. ScoutSheet makes its own copy of the player data on your computer and works from that.</p></details>
         <details><summary>Is it cheating?</summary><p>Only if you want it to be. Fair play hides CA, PA, hidden attributes and personality, so you scout with what a scout shows you in game. Moneyball hides attributes entirely and judges players on what they do in matches.</p></details>
         <details><summary>What is the fair price?</summary><p>What a player should cost, worked out from similar players (same kind of profile, age, level and contract) in your own save. ScoutSheet then tells you how far under or over it he is selling. In Moneyball, a player needs about ten full games (900 minutes) before he gets one.</p></details>
         <details><summary>Can I use the data in my own spreadsheet?</summary><p>Yes. Any list in the app exports to a CSV file, which opens in Excel, Google Sheets, Numbers or any data tool you like. It's your save, so it's your data.</p></details>
@@ -316,19 +290,25 @@
         <a href="https://github.com/absalom12/scoutsheetfm" target="_blank" rel="noopener">Code on GitHub</a>
         <a href="https://x.com/AbsalomeSama" target="_blank" rel="noopener">@AbsalomeSama on X</a>
         <a href="https://github.com/absalom12/scoutsheetfm/releases" target="_blank" rel="noopener">All releases</a>
+        <a href="/supporter">Recruitment Analyst</a>
       </p>
     </div>
     <div class="legal">
       <p>Unofficial project, not affiliated with Sports Interactive, SEGA or Football Manager.</p>
-      <p><a href="/privacy">Privacy &amp; legal notice</a> · <button type="button" class="linkish" data-consent-open>Cookie settings</button></p>
+      <p class="foot-links"><a href="/privacy">Privacy &amp; legal notice</a><button type="button" class="linkish" data-consent-open>Cookie settings</button></p>
       <p>Built on <a href="https://github.com/rhiever" target="_blank" rel="noopener">fmsave by Randal Olson</a>.</p>
     </div>
   </div>
 </footer>
 <div class="dock" data-dock hidden>
-  <span class="dock-txt"><b>ScoutSheet</b><span class="dock-sub"> · free, read-only</span></span>
+  <span class="dock-txt"><b>ScoutSheet</b><span class="dock-sub">, free, read-only</span></span>
   <a class="btn btn-primary btn-sm" data-dl="dock" href="#install"><span data-dl-text>Download</span></a>
 </div>
+<dialog class="demo-dlg" id="demoDlg" aria-label="Demo video, 74 seconds">
+  <video class="demo-video" controls playsinline preload="none" poster="img/demo-poster.webp" width="1920" height="1080"><source src="img/demo.mp4" type="video/mp4"></video>
+  <form method="dialog"><button class="btn btn-sm">Close</button></form>
+</dialog>
+<div id="tip" hidden aria-hidden="true"></div>
 <div class="consent" data-consent role="region" aria-labelledby="consent-txt" hidden>
   <p id="consent-txt">Can we measure visits with Google Analytics? It uses cookies and sends Google the pages you view, time on site, device and country. Refusing changes nothing on the site, and you can change your mind anytime in Cookie settings. <a href="/privacy">Privacy</a></p>
   <div class="consent-btns">
@@ -336,7 +316,7 @@
     <button type="button" class="btn btn-sm" data-consent-yes>Accept</button>
   </div>
 </div>
-<script src="script.js?v=0.6.0"></script>
+<script src="script.js?v=0.7.1-home1"></script>
 <script src="stats.js"></script>
 <script src="consent.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d05d71fa570d41a2819385d51434a635"}'></script>

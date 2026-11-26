@@ -27,11 +27,12 @@ Open http://localhost:8000.
 
 ## Screenshots
 
-`img/` holds real captures of the app (3024 px wide Retina PNGs), exported to WebP (quality 80). Desktop hero: v0.5.0, January 2028 save, cropped to 3024×1650. The other images are v0.4.4 captures of a Bristol Rovers save, January 2028.
+`img/` holds real captures of the app (3024 px wide Retina PNGs), exported to WebP (quality 80). All of them come from one FM27 save, April 2027, captured in November 2026.
 
 - Hero, desktop: `full`, `fair`, `moneyball` at two widths (`*-1600.webp`, `*-3024.webp`), served with `srcset`.
-- Hero, phone: `full-m`, `fair-m`, `moneyball-m`: the name column and the mode columns, cut side by side.
-- Feature crops at native Retina size (2x display): `club-pitch`, `okou-pitch` (+ `okou-pitch-m` for phones), `paz-map`.
+- Hero, phone: `full-m`, `fair-m`, `moneyball-m`: the left part of the same captures.
+- Tools: `club`, `player`, `price` (`*-1600.webp`, and `*-m.webp` crops for phones).
+- Analyst: `analyst-real.mp4` with its poster, a full-size still and a phone crop, shared with `supporter.html`.
 
 ## Deploy
 
@@ -40,6 +41,13 @@ Hosted on Cloudflare as a Worker named `fm26-scout-site` serving static assets f
 ```bash
 npx wrangler deploy
 ```
+
+## Recruitment Analyst
+
+`analyst.js` is the server side of the app's Recruitment Analyst (licence check, free tries, cost cap). Its master prompt
+is private and not in this repository: the Worker imports it from `analyst.prompt.js`, which git ignores. To run the
+Worker yourself, copy `analyst.prompt.example.js` to `analyst.prompt.js` (a short, untuned prompt) and set your own
+`ANTHROPIC_API_KEY` secret.
 
 ## License
 
